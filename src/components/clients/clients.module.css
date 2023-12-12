@@ -1,5 +1,9 @@
 .clients {
     min-height: 100dvh;   
+    display: grid;
+    gap: var(--space-md);
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 0 var(--page-margin);
 }
 
 .clientCard {
@@ -7,6 +11,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    min-width: 0;
+    overflow: hidden;
+    aspect-ratio: 5 / 3;
 }
 
 .clientImage {
@@ -20,4 +27,5 @@
 .clientLogo {
     position: relative;
     z-index: 1;
+    width: 70%;
 }
