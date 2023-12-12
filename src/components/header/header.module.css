@@ -1,0 +1,42 @@
+.header {
+    width: 100%;
+    position: fixed;
+    z-index: 9;
+    top: 0;
+    right: 0;
+    left: 0;
+}
+
+.promoBar {
+    color: var(--color-ink);
+    background-color: var(--color-reverse);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: var(--space-2xs);
+}
+
+.headerMenu {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: var(--space-xs) var(--page-margin);
+}
+
+.navigationMenu {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-md);
+}
+
+.utilityMenu {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-md);
+}
+
+.navigationLink {
+    color: inherit;
+}
