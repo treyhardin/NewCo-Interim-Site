@@ -16,8 +16,8 @@ export default function Clients() {
         <section class={styles.clients}>
             <For each={data()}>{(client, i) =>
                 <div class={styles.clientCard}>
-                    <img class={styles.clientImage} src={urlFor(client.image).width(1200)} />
-                    <img class={styles.clientLogo} src={urlFor(client.logo).width(1000)} />
+                    <img width="500" height="300" class={styles.clientImage} src={urlFor(client.image).width(1200)} />
+                    <img width="500" height="500" class={styles.clientLogo} src={urlFor(client.logo).width(1000)} />
                 </div>
             }</For>
         </section>

@@ -15,7 +15,17 @@ export function urlFor(source) {
   return builder.image(source)
 }
 
+export async function getNavigationSettings() {
+  const navigationSettings = await client.fetch('*[_type == "navigationSettings"]{ showPromoBar, promoBarContent, links, instagramURL, linkedInURL, twitterURL, "logoURL": logo.asset -> url, showButton, buttonURL, buttonText}')
+  return navigationSettings
+}
+
+export async function getHeroSettings() {
+  const heroSettings = await client.fetch('*[_type == "heroSettings"]{ heading, subheading, "videoURL": video.asset -> url, "imageURL": image.asset -> url}')
+  return heroSettings
+}
+
 export async function getClients() {
-    const clients = await client.fetch('*[_type == "client"]')
-    return clients
+  const clients = await client.fetch('*[_type == "client"]')
+  return clients
 }

@@ -13,14 +13,18 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: var(--space-2xs);
+    padding: var(--space-xs);
+}
+
+.promoBar p {
+    margin: 0;
 }
 
 .headerMenu {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding: var(--space-xs) var(--page-margin);
+    padding: var(--space-md) var(--page-margin);
 }
 
 .navigationMenu {
@@ -30,11 +34,30 @@
     gap: var(--space-md);
 }
 
+.logo {
+    width: 25vw;
+    max-width: 150px;
+    padding-right: var(--space-md);
+    border-right: 1px solid var(--color-subdued);
+}
+
+.logo img {
+    width: 100%;
+}
+
 .utilityMenu {
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: var(--space-md);
+    gap: var(--space-lg);
+}
+
+.utilityMenu svg {
+    width: var(--icon-lg);
+}
+
+.utilityMenu a {
+    color: inherit;
 }
 
 .navigationLink {

@@ -1,8 +1,10 @@
 .clients {
-    min-height: 100dvh;   
+    /* min-height: 100dvh;    */
     display: grid;
     gap: var(--space-md);
-    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: var(--space-md);
+    row-gap: var(--space-md);
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     padding: 0 var(--page-margin);
 }
 
@@ -14,6 +16,7 @@
     min-width: 0;
     overflow: hidden;
     aspect-ratio: 5 / 3;
+    margin: 0;
 }
 
 .clientImage {
@@ -28,4 +31,5 @@
     position: relative;
     z-index: 1;
     width: 70%;
+    max-height: 100%;
 }
