@@ -29,3 +29,8 @@ export async function getClients() {
   const clients = await client.fetch('*[_type == "client"]')
   return clients
 }
+
+export async function getServicesSettings() {
+  const servicesSettings = await client.fetch('*[_type == "servicesSettings"]')
+  return servicesSettings
+}

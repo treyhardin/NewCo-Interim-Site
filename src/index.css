@@ -51,12 +51,14 @@
   --space-xl: 40px;
   --space-2xl: 60px;
   --space-3xl: 80px;
+  --space-4xl: 120px;
 
   --radius-sm: 6px;
   --radius-lg: 14px;
   --radius-rounded: 100vw;
 
   --page-margin: var(--space-lg);
+  --content-margin: 1440px;
 
   --icon-lg: 20px;
 
@@ -80,7 +82,7 @@ body {
   --font-size-desktop: 16;
   --font-size-mobile: 18;
   letter-spacing: -0.02em;
-  line-height: 1.0;
+  line-height: 1.2;
 }
 
 button {
@@ -106,7 +108,13 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
   margin: 0 0 0.2em;
   letter-spacing: -0.05em;
   line-height: 1.1;
@@ -136,22 +144,27 @@ h1,
   letter-spacing: -0.07em;
 }
 
-h2 {
-  --font-size-desktop: 64;
-  --font-size-mobile: 40;
+h2,
+.h2 {
+  --font-size-desktop: 60;
+  --font-size-mobile: 30;
+  margin-bottom: 0.1em;
 }
 
-h3 {
+h3,
+.h3 {
   --font-size-desktop: 46;
   --font-size-mobile: 32;
 }
 
-h4 {
+h4,
+.h4 {
   --font-size-desktop: 34;
   --font-size-mobile: 26;
 }
 
-h5 {
+h5,
+.h5 {
   --font-size-desktop: 26;
   --font-size-mobile: 20;
 }
@@ -167,6 +180,10 @@ h6,
 button {
   --font-size-desktop: 16;
   --font-size-mobile: 16;
+}
+
+p {
+  margin: 0 0 1em;
 }
 
 .caption {
