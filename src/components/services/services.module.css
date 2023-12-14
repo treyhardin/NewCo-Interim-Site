@@ -18,6 +18,8 @@
 .servicesInfo {
   flex: 50% 1 0;
   max-width: 800px;
+  position: sticky;
+  top: 20dvh;
 }
 
 .stats {

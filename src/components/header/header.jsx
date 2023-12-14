@@ -12,7 +12,6 @@ export default function Header() {
 
     createEffect(() => {
         if (data() && data()[0] && promoBarContent && data()[0].showPromoBar) {
-            console.log(data())
             promoBarContent.innerHTML = toHTML(data()[0].promoBarContent)
         }
     })
@@ -35,17 +34,17 @@ export default function Header() {
                     </div>
                     <div class={styles.utilityMenu}>
                         <Show when={data()[0].instagramURL}>
-                            <a href={data()[0].instagramURL} class={styles.navigationURL} target='_blank'>
+                            <a href={data()[0].instagramURL} class={styles.socialLink} target='_blank'>
                                 {instagramIcon}
                             </a>
                         </Show>
                         <Show when={data()[0].twitterURL}>
-                            <a href={data()[0].twitterURL} class={styles.navigationURL} target='_blank'>
+                            <a href={data()[0].twitterURL} class={styles.socialLink} target='_blank'>
                                 {twitterIcon}
                             </a>
                         </Show>
                         <Show when={data()[0].linkedInURL}>
-                            <a href={data()[0].linkedInURL} class={styles.navigationURL} target='_blank'>
+                            <a href={data()[0].linkedInURL} class={styles.socialLink} target='_blank'>
                                 {linkedInIcon}
                             </a>
                         </Show>

@@ -4,12 +4,7 @@ import { getServicesSettings } from '../../utilities/sanity-client'
 
 export default function Services() {
 
-
   const [ data ] = createResource(getServicesSettings)
-
-  createEffect(() => {
-    console.log(data())
-  })
 
   return (
     <section class={styles.services}>

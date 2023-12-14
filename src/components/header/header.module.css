@@ -52,7 +52,7 @@
     gap: var(--space-lg);
 }
 
-.utilityMenu svg {
+.socialLink {
     width: var(--icon-lg);
 }
 
@@ -62,4 +62,14 @@
 
 .navigationLink {
     color: inherit;
+}
+
+@media screen and (max-width: 800px) {
+    .navigationLink {
+        display: none;
+    }
+
+    .socialLink {
+        display: none;
+    }
 }

@@ -1,0 +1,28 @@
+footer {
+  margin: 0 var(--page-margin);
+  padding: var(--space-lg) 0;
+  border-top: 1px solid var(--color-subdued);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+footer p {
+  margin: 0;
+}
+
+.footerInfo {
+
+}
+
+.footerLinks {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--space-lg);
+}
+
+.footerLink {
+  color: inherit;
+}

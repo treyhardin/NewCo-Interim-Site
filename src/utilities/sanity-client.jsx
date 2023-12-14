@@ -34,3 +34,18 @@ export async function getServicesSettings() {
   const servicesSettings = await client.fetch('*[_type == "servicesSettings"]')
   return servicesSettings
 }
+
+export async function getPartnersSettings() {
+  const partnersSettings = await client.fetch('*[_type == "partnersSettings"]')
+  return partnersSettings
+}
+
+export async function getAgenciesSettings() {
+  const agenciesSettings = await client.fetch('*[_type == "agenciesSettings"]')
+  return agenciesSettings
+}
+
+export async function getFooterSettings() {
+  const footerSettings = await client.fetch('*[_type == "footerSettings"]')
+  return footerSettings
+}

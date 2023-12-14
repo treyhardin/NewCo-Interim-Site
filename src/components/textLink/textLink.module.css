@@ -1,0 +1,16 @@
+.textLink {
+  display: flex;
+  flex-direction: row;
+  gap: var(--space-xs);
+  align-items: center;
+  color: inherit;
+  align-self: flex-start;
+}
+
+.textLink .text {
+  margin: 0;
+}
+
+.textLink svg {
+  width: 1em;
+}

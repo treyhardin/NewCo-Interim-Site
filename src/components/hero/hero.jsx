@@ -7,13 +7,6 @@ export default function Hero() {
 
     const [data] = createResource(getHeroSettings)
 
-    createEffect(() => {
-        if (data()) {
-
-            console.log(data()[0])
-        }
-    })
-
     return (
         <section class={styles.hero}>
             <Show when={data()}>

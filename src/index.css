@@ -153,7 +153,7 @@ h2,
 
 h3,
 .h3 {
-  --font-size-desktop: 46;
+  --font-size-desktop: 44;
   --font-size-mobile: 32;
 }
 
@@ -187,8 +187,8 @@ p {
 }
 
 .caption {
-  --font-size-desktop: 12;
-  --font-size-mobile: 12;
+  --font-size-desktop: 14;
+  --font-size-mobile: 14;
   letter-spacing: -0.02em;
 }
 

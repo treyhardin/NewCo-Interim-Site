@@ -24,3 +24,11 @@ export const longArrowIcon = (
   </svg>
 
 )
+
+export const arrow = () => {
+  return (
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 27 12">
+    <path stroke="currentColor" d="M.43 5.9h25m0 0-5-5m5 5-5 5"/>
+  </svg>
+  )
+}
