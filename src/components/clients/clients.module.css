@@ -23,8 +23,8 @@
     display: flex;
     flex-direction: column;
     gap: var(--space-sm);
-    mask: linear-gradient(90deg, transparent 0%, var(--color-reverse) 10%, var(--color-reverse) 90%, transparent 100%);
-    -webkit-mask: linear-gradient(90deg, transparent 0%, var(--color-reverse) 20%, var(--color-reverse) 80%, transparent 100%);
+    /* mask: linear-gradient(90deg, transparent 0%, var(--color-reverse) 10%, var(--color-reverse) 90%, transparent 100%);
+    -webkit-mask: linear-gradient(90deg, transparent 0%, var(--color-reverse) 20%, var(--color-reverse) 80%, transparent 100%); */
 }
 
 .clientCardRow {
@@ -38,7 +38,7 @@
     padding: 0;
     width: max-content;
     animation: scrollClientCards var(--anim-duration) linear 0s infinite;
-    height: 20lvh;
+    /* height: 20lvh; */
     will-change: translate;
 }
 
@@ -78,7 +78,6 @@
     z-index: 0;
     width: 100%;
     height: 100%;
-    /* filter: grayscale(1); */
 }
 
 .clientLogo {
