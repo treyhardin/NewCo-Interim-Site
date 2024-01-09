@@ -1,35 +1,75 @@
-.clients {
+/* .clients {
     display: grid;
-    --scroll-offset: 1;
-    /* display: flex; */
-    /* flex-direction: row; */
+    --scroll-offset: 0;
     gap: var(--space-xl);
-    flex-wrap: nowrap;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    /* grid-template-rows: 1fr 1fr 1fr; */
-    /* grid-template-columns: auto; */
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-columns: auto;
     padding: 0 var(--page-margin);
     will-change: translate;
     max-width: unset;
-    /* width: fit-content; */
-    /* translate: 0 0; */
+    overflow: hidden;
+    width: 200%;
+    justify-items: auto;
+} */
+
+.clients {
+    /* max-width: 900px; */
+    width: 100vw;
+    overflow: visible;
+    /* align-self: center; */
+    /* margin: 0 auto; */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    mask: linear-gradient(90deg, transparent 0%, var(--color-reverse) 10%, var(--color-reverse) 90%, transparent 100%);
+    -webkit-mask: linear-gradient(90deg, transparent 0%, var(--color-reverse) 20%, var(--color-reverse) 80%, transparent 100%);
 }
 
+.clientCardRow {
+    --anim-duration: 100s;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    /* align-items: stretch; */
+    gap: var(--space-sm);
+    margin: 0;
+    padding: 0;
+    width: max-content;
+    animation: scrollClientCards var(--anim-duration) linear 0s infinite;
+    height: 20lvh;
+    will-change: translate;
+}
+
+.clientCardRow:nth-child(2n) {
+    animation: scrollClientCardsInverse var(--anim-duration) linear 0s infinite;
+}
+
+@keyframes scrollClientCards {
+    to {
+        translate: calc(-50% - var(--space-sm) / 2) 0;
+    }
+}
+
+@keyframes scrollClientCardsInverse {
+    from {
+        translate: calc(-50% - var(--space-sm) / 2) 0;
+    }
+}
+
+
 .clientCard {
-    --index: 1;
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     min-width: 0;
-    /* width: 50vw; */
+    width: 30vw;
     overflow: hidden;
     aspect-ratio: 5 / 3;
     margin: 0;
-    flex: 30vw 0 0;
     border-radius: var(--radius-sm);
-    /* scale: calc(0.2 * var(--index)); */
-    scale: var(--random);
 }
 
 .clientImage {
