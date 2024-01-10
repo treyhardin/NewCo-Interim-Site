@@ -72,6 +72,10 @@
   flex: 50% 0 0;
 }
 
+.serviceDescription {
+  color: var(--color-light);
+}
+
 .serviceDeliverables {
   margin: 0;
   display: flex;

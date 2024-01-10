@@ -79,8 +79,8 @@ body {
   color: var(--color-reverse);
   margin: 0;
   font-family: 'MaisonNeue';
-  --font-size-desktop: 16;
-  --font-size-mobile: 18;
+  --font-size-desktop: 14;
+  --font-size-mobile: 16;
   letter-spacing: -0.02em;
   line-height: 1.2;
 }
@@ -188,7 +188,7 @@ p {
 
 .caption {
   --font-size-desktop: 14;
-  --font-size-mobile: 14;
+  --font-size-mobile: 12;
   letter-spacing: -0.02em;
 }
 

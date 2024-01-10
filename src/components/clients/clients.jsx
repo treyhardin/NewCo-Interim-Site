@@ -11,6 +11,8 @@ export default function Clients() {
     let cards;
     let scrollerRow = [];
 
+    const [ data ] = createResource(getClients)
+
     const initScrollAnimation = (el) => {
 
         // Check for reduced motion preference
@@ -19,8 +21,6 @@ export default function Clients() {
             scrollerRow.forEach((row, i) => {
 
                 const scrollerChildren = Array.from(row.children)
-
-                // console.log(scrollerChildren)
     
                 scrollerChildren.forEach((child, i) => {
                     // console.log(child)
@@ -29,24 +29,14 @@ export default function Clients() {
                     row.appendChild(clonedElement)
                 })
             })
-
-            
         }
     }
     
-
-    const [ data ] = createResource(getClients)
-
     createEffect(() => {
-
         if (!data.loading && !data.error && scrollerRow.length > 0) {
             initScrollAnimation()
-            // console.log(data())
         }
-
     })
-
-    const minScale = 0.5
     
     return (
         <section class={styles.clients} ref={cards}>
@@ -54,7 +44,7 @@ export default function Clients() {
             <div class={styles.clientCardRow} ref={scrollerRow[0]}>
                 <For each={data()}>{(client, i) =>
                     <Show when={i() <= data().length / 3}>
-                    <div class={styles.clientCard} key={i()} style={`--index: ${i() + 1}; --random: ${Math.random() * minScale + minScale}`}>
+                    <div class={styles.clientCard} key={i()}>
                         <img width="500" height="300" class={styles.clientImage} src={urlFor(client.image).width(1200)} />
                         <img width="500" height="500" class={styles.clientLogo} src={urlFor(client.logo).width(1000)} />
                     </div>
@@ -65,7 +55,7 @@ export default function Clients() {
             <div class={styles.clientCardRow} ref={scrollerRow[1]}>
                 <For each={data()}>{(client, i) =>
                     <Show when={i() > data().length / 3 && i() <= data().length / 3 * 2}>
-                        <div class={styles.clientCard} key={i()} style={`--index: ${i() + 1}; --random: ${Math.random() * minScale + minScale}`}>
+                        <div class={styles.clientCard} key={i()}>
                             <img width="500" height="300" class={styles.clientImage} src={urlFor(client.image).width(1200)} />
                             <img width="500" height="500" class={styles.clientLogo} src={urlFor(client.logo).width(1000)} />
                         </div>
@@ -76,7 +66,7 @@ export default function Clients() {
             <div class={styles.clientCardRow} ref={scrollerRow[2]}>
                 <For each={data()}>{(client, i) =>
                     <Show when={i() > data().length / 3 * 2}>
-                        <div class={styles.clientCard} key={i()} style={`--index: ${i() + 1}; --random: ${Math.random() * minScale + minScale}`}>
+                        <div class={styles.clientCard} key={i()}>
                             <img width="500" height="300" class={styles.clientImage} src={urlFor(client.image).width(1200)} />
                             <img width="500" height="500" class={styles.clientLogo} src={urlFor(client.logo).width(1000)} />
                         </div>

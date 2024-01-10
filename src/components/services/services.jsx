@@ -28,7 +28,10 @@ export default function Services() {
           <div class={styles.servicesCategories}>
             <For each={data()[0].services}>{(service, i) =>
               <div class={styles.serviceCategory} key={i}>
-                <p class={`${styles.serviceTitle} h5`}>{service.title}</p>
+                <div class={styles.serviceText}>
+                  <p class={`${styles.serviceTitle} h5`}>{service.title}</p>
+                  <p class={`${styles.serviceDescription} caption`}>{service.description}</p>
+                </div>
                 <ul class={styles.serviceDeliverables}>
                   <For each={service.deliverables}>{(deliverable, j) =>
                     <li class="caption" key={j}>{deliverable}</li>
