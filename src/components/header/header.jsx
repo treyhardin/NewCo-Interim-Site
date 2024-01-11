@@ -3,6 +3,7 @@ import { getNavigationSettings } from '../../utilities/sanity-client'
 import {toHTML} from '@portabletext/to-html'
 import styles from './header.module.css'
 import { instagramIcon, linkedInIcon, twitterIcon } from '../../utilities/icons'
+import { lenis } from '../../App'
 
 export default function Header() {
 
@@ -49,9 +50,7 @@ export default function Header() {
                             </a>
                         </Show>
                         <Show when={data()[0].showButton && data()[0].buttonText && data()[0].buttonURL}>
-                            <a href={data()[0].buttonURL} target='_blank'>
-                                <button>{data()[0].buttonText}</button>
-                            </a>
+                                <button onClick={() => lenis.scrollTo("#contact")}>{data()[0].buttonText}</button>
                         </Show>
                     </div>
                 </div>

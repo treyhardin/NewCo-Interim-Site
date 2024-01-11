@@ -7,6 +7,7 @@ import Lenis from '@studio-freight/lenis'
 import Partners from './components/partners/partners'
 import Agencies from './components/agencies/agencies'
 import Footer from './components/footer/footer'
+import Contact from './components/contact/contact'
 
 
 export const lenis = new Lenis()
@@ -32,6 +33,7 @@ function App() {
       <Clients />
       <Services />
       <Partners />
+      <Contact />
       <Agencies />
       <Footer />
     </>

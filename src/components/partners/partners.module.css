@@ -32,7 +32,7 @@
 
 .partnerLogo[data-active-animation="true"] {
   opacity: 0;
-  translate: 0 -10px;
+  translate: 0 10px;
   /* transition: opacity var(--anim-easing); */
 }
 

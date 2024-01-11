@@ -17,37 +17,47 @@ export default function Partners() {
     const logoElements = Array.from(logoContainer.children)
     const logoCount = logoElements.length
 
-    const activeLogos = []
-    const pendingLogos = []
+    let activeLogos = []
+    let pendingLogos = []
 
     data()[0].logos.forEach((logo, i) => {
 
+      const url = urlFor(logo).url()
+      // console.log(url)
+
       if (i < maxLogos) {
-        activeLogos.push(logo)
+        activeLogos.push(url)
       } else {
-        pendingLogos.push(logo)
+        pendingLogos.push(url)
       }
     })
 
-    // const logoQueue = data()[0].logos.filter((partner, i) => {
-    //   return i >= maxLogos
-    // })
+
+    const pendingLogoCount = pendingLogos.length
 
     const cycleLogos = () => {
 
-      const pendingLogoCount = pendingLogos.length
-
       setInterval(() => {
 
-        const randomActiveIndex = Math.floor(Math.random() * maxLogos)
-        const randomActiveLogo = logoContainer.children[randomActiveIndex]
-        const activeImage = randomActiveLogo.querySelector('img')
+        const elementIndex = Math.floor(Math.random() * maxLogos)
+        const randomElement = logoContainer.children[elementIndex]
+        const activeImage = randomElement.querySelector('img')
 
         const randomPendingIndex = Math.floor(Math.random() * pendingLogoCount)
         const randomPendingLogo = pendingLogos[randomPendingIndex]
 
-        activeLogos[randomActiveIndex] = randomPendingLogo
-        pendingLogos[randomPendingIndex] = data()[0].logos[randomPendingIndex + maxLogos - 1]
+        // activeLogos[randomActiveIndex] = randomPendingLogo
+
+        console.log(activeLogos)
+        console.log(activeImage.src)
+
+        activeLogos = activeLogos.filter((item, i) => item !== activeImage.src)
+        activeLogos.push(randomPendingLogo)
+
+        pendingLogos = pendingLogos.filter((item, i) => item !== randomPendingLogo)
+        pendingLogos.push(activeImage.src)
+
+        // pendingLogos[randomPendingIndex] = data()[0].logos[randomPendingIndex + maxLogos - 1]
 
         // console.log(activeLogos[randomActiveIndex])
         // console.log(pendingLogos[randomPendingIndex])
@@ -56,11 +66,11 @@ export default function Partners() {
         // console.log(pendingLogos)
 
 
-        randomActiveLogo.dataset.activeAnimation = true
+        randomElement.dataset.activeAnimation = true
 
         setTimeout(() => {
-          activeImage.src = urlFor(randomPendingLogo)
-          randomActiveLogo.dataset.activeAnimation = false
+          activeImage.src = randomPendingLogo
+          randomElement.dataset.activeAnimation = false
         }, transitionDelay * 1000);
 
 
@@ -70,7 +80,7 @@ export default function Partners() {
 
     }
 
-    cycleLogos()
+    // cycleLogos()
 
 
   }

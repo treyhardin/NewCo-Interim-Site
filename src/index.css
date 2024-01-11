@@ -32,17 +32,24 @@
 
 :root {
 
+  /* Browser Resets */
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
+  /* Colors */
   --color-ink: #1C1C1C;
   --color-subdued: #3A3A3A;
   --color-neutral: #B8B8B8;
   --color-light: #C7C7C7;
   --color-reverse: #ffffff;
 
+  --color-success: rgb(0, 255, 123);
+  --color-error: red;
+  --color-focus: rgb(60, 0, 255);
+
+  /* Spacing */
   --space-2xs: 5px;
   --space-xs: 10px;
   --space-sm: 15px;
@@ -60,9 +67,27 @@
   --page-margin: var(--space-lg);
   --content-margin: 1440px;
 
+  /* Icons */
+  --icon-sm: 10px;
+  --icon-md: 16px;
   --icon-lg: 20px;
 
+  /* Forms */
+  --form-field-background: transparent;
+  --form-field-border: var(--color-neutral);
+  --form-field-radius: 4px;
+  --form-field-gap-inline: var(--space-xs);
+  --form-field-gap-block: var(--space-sm);
+  --form-toggle-size: 16px;
+
+  /* Fonts */
+  --font-family: 'MaisonNeue';
+
+  /* Animation */
   --anim-easing: cubic-bezier(0.22, 1, 0.36, 1);
+  --anim-sm: 0.3s var(--anim-easing);
+  --anim-md: 0.8s var(--anim-easing);
+  --anim-lg: 1.2s var(--anim-easing);
 }
 
 a {
@@ -78,14 +103,15 @@ body {
   background-color: var(--color-ink);
   color: var(--color-reverse);
   margin: 0;
-  font-family: 'MaisonNeue';
+  font-family: var(--font-family);
   --font-size-desktop: 14;
   --font-size-mobile: 16;
   letter-spacing: -0.02em;
   line-height: 1.2;
 }
 
-button {
+button,
+input[type="submit"] {
   border-radius: var(--radius-rounded);
   border: 1px solid transparent;
   padding: var(--space-xs) var(--space-md);
@@ -95,11 +121,13 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
-button:hover {
+button:hover,
+input[type="submit"]:hover {
   border-color: #646cff;
 }
-button:focus,
-button:focus-visible {
+/* button:focus, */
+button:focus-visible,
+input[type="submit"]:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
@@ -127,7 +155,9 @@ h6,
 p,
 a,
 ul,
-.caption {
+.caption,
+input,
+textarea {
   font-size: max( var(--fluid-font-size), calc(var(--font-size-mobile) * 1px) );
   /* margin: 0 0 0.4em; */
   font-weight: normal;
@@ -191,6 +221,104 @@ p {
   --font-size-mobile: 12;
   letter-spacing: -0.02em;
 }
+
+
+/* Forms */
+form {
+  display: flex;
+  flex-direction: column;
+  /* gap: var(--form-field-gap-block); */
+}
+
+.input {
+  margin-right: 0 !important;
+}
+
+input,
+textarea {
+  border: 1px solid var(--form-field-border);
+  background-color: var(--form-field-background);
+  border-radius: var(--form-field-radius);
+  padding: var(--space-xs);
+  color: var(--color-reverse);
+  transition: border var(--anim-sm);
+}
+
+input:hover,
+textarea:hover {
+  border-color: var(--color-reverse);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--color-light);
+}
+
+textarea {
+  /* font-family: var(--font-family); */
+  font-family: inherit;
+}
+
+/* input:invalid {
+  border: 1px solid var(--color-error);
+} */
+
+/* Hubspot Styling */
+
+.form-columns-2 {
+  display: flex;
+  flex-direction: row;
+  gap: var(--form-field-gap-inline);
+}
+
+.form-columns-1,
+.form-columns-2 {
+  /* width: 100%; */
+  /* margin-bottom: var(--form-field-gap-block); */
+}
+
+.hs-form-field {
+  margin-bottom: var(--form-field-gap-block);
+}
+
+.hs-input {
+  width: 100% !important;
+}
+
+.hs-button {
+  width: 100%; 
+}
+
+.hs-error-msgs {
+  margin: var(--space-2xs) 0 0;
+  padding: 0;
+}
+
+.hs-error-msgs li {
+  list-style: none;
+}
+
+.hs-error-msg,
+.hs-richtext p {
+  font-size: max( var(--fluid-font-size), calc(var(--font-size-mobile) * 1px) );
+  font-weight: normal;
+  --font-size-desktop: 14;
+  --font-size-mobile: 12;
+  color: var(--color-light);
+}
+
+.hs-error-msg {
+  width: 100%;
+  display: block;
+  letter-spacing: -0.02em;
+  background-color: var(--color-error);
+  color: var(--color-reverse);
+  border-radius: var(--form-field-radius);
+  padding: var(--space-2xs) var(--space-xs);
+}
+
+
+
 
 @media screen and (min-width: 1440px) {
   * {
