@@ -1,10 +1,11 @@
 import { For, Show, createResource } from 'solid-js'
-import { blocksToText, getAboutContent } from '../../utilities/sanity-client'
+import { blocksToText, getAboutContent, urlFor } from '../../utilities/sanity-client'
 import styles from './about.module.css'
 
 export default function About() {
 
   const [ data ] = createResource(getAboutContent)
+  
 
   return (
     <Show when={data()}>
@@ -27,7 +28,7 @@ export default function About() {
         <div class={styles.sectionMedia}>
           <video 
             src={data()[0].videoURL}
-            poster={data()[0].image}
+            poster={urlFor(data()[0].image).width(800).url()}
             autoplay
             loop
             muted

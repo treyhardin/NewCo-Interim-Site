@@ -1,5 +1,5 @@
 .services {
-  padding: var(--header-height) var(--page-margin) var(--space-xl);
+  padding: 0 var(--page-margin) var(--space-xl);
   display: flex;
   flex-direction: row;
   justify-content: stretch;
@@ -9,17 +9,22 @@
   max-width: var(--content-margin);
 }
 
-.servicesInfo,
+/* .servicesInfo,
 .servicesCategories {
   flex: 1 1 50%;
-}
+} */
 
 .servicesInfo {
+  flex: 1 1 auto;
   display: flex;
   flex-direction: column;
-  gap: var(--space-md);
+  justify-content: stretch;
+  gap: var(--space-2xl);
   position: sticky;
-  top: var(--header-height);
+  top: 0;
+  height: 100lvh;
+  /* height: calc(100lvh - var(--header-height)); */
+  padding: var(--header-height) 0 var(--space-lg);
 }
 
 .sectionTitle {
@@ -28,29 +33,58 @@
   gap: var(--space-sm);
 }
 
+.sectionMedia {
+  flex-grow: 1;
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.serviceImage {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity var(--anim-lg);
+}
+
+.serviceImage[data-active="true"] {
+  opacity: 1;
+}
+
 .servicesCategories {
+  flex: 1 0 40%;
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  gap: var(--space-md);
+  /* gap: var(--space-3xl); */
+  gap: 20lvh;
+  /* padding-bottom: 100lvh; */
 }
 
 .serviceCategory {
-  border-top: 1px solid var(--color-subdued);
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   align-items: flex-start;
-  padding: var(--space-md) 0;
+  padding: var(--header-height) 0 var(--space-md);
+  gap: var(--space-md);
+  color: var(--color-subdued);
+  transition: color var(--anim-sm);
+  min-height: 100lvh;
 }
 
-.serviceTitle {
-  display: flex;
-  flex-direction: row;
+.serviceCategory[data-active="true"] {
+  color: var(--color-reverse);
 }
 
-.serviceName {
-  composes: h4 from '../../index.css';
+.serviceNumber {
+  composes: caption from '../../index.css';
+  padding-top: var(--space-xs);
 }
 
 .serviceDeliverables {
@@ -60,10 +94,16 @@
   flex-direction: column;
   gap: var(--space-sm);
   flex: 50% 0 0;
+  list-style: none;
+}
+
+.serviceName {
+  composes: h3 from '../../index.css';
+  margin-bottom: var(--space-sm);
 }
 
 .deliverable {
-  composes: caption from '../../index.css';
+  composes: h6 from '../../index.css';
 }
 
 @media screen and (max-width: 880px) {

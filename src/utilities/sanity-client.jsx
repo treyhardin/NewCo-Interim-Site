@@ -55,8 +55,8 @@ export async function getAboutContent() {
   return clients
 }
 
-export async function getServicesSettings() {
-  const servicesSettings = await client.fetch('*[_type == "servicesSettings"]')
+export async function getServicesContent() {
+  const servicesSettings = await client.fetch('*[_type == "services"]')
   return servicesSettings
 }
 
