@@ -1,53 +1,31 @@
 .services {
-  padding: var(--space-4xl) var(--page-margin);
+  padding: var(--header-height) var(--page-margin) var(--space-xl);
   display: flex;
   flex-direction: row;
-  justify-content: center;
-}
-
-.servicesInner {
-  display: flex;
-  flex-direction: row;
+  justify-content: stretch;
   align-items: flex-start;
-  justify-content: space-between;
   gap: var(--space-3xl);
   flex-grow: 1;
   max-width: var(--content-margin);
 }
 
-.servicesInfo {
-  flex: 50% 1 0;
-  max-width: 800px;
-  position: sticky;
-  top: 20dvh;
+.servicesInfo,
+.servicesCategories {
+  flex: 1 1 50%;
 }
 
-.stats {
-  margin-top: var(--space-lg);
+.servicesInfo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  position: sticky;
+  top: var(--header-height);
+}
+
+.sectionTitle {
   display: flex;
   flex-direction: column;
   gap: var(--space-sm);
-  max-width: 600px;
-}
-
-.stat {
-  border: 1px solid var(--color-subdued);
-  border-radius: var(--radius-sm);
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  padding: var(--space-sm) var(--space-md);
-}
-
-.statLabel {
-  color: var(--color-light);
-  margin: 0;
-}
-
-.statValue {
-  margin: 0;
-  /* color: var(--color-subdued); */
 }
 
 .servicesCategories {
@@ -55,8 +33,6 @@
   flex-direction: column;
   align-items: stretch;
   gap: var(--space-md);
-  flex: 50% 0 1;
-  max-width: 600px;
 }
 
 .serviceCategory {
@@ -69,19 +45,25 @@
 }
 
 .serviceTitle {
-  flex: 50% 0 0;
+  display: flex;
+  flex-direction: row;
 }
 
-.serviceDescription {
-  color: var(--color-light);
+.serviceName {
+  composes: h4 from '../../index.css';
 }
 
 .serviceDeliverables {
   margin: 0;
+  padding: 0;
   display: flex;
   flex-direction: column;
   gap: var(--space-sm);
   flex: 50% 0 0;
+}
+
+.deliverable {
+  composes: caption from '../../index.css';
 }
 
 @media screen and (max-width: 880px) {

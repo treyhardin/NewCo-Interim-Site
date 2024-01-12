@@ -8,33 +8,31 @@ export default function Services() {
 
   return (
     <section class={styles.services} id="services">
-      <div class={styles.servicesInner}>
 
         <Show when={data()}>
           <div class={styles.servicesInfo}>
-            <h2>{data()[0].heading}</h2>
-            <p>{data()[0].subheading}</p>
-            <div class={styles.stats}>
-              <For each={data()[0].stats}>{(stat, i) =>
-                <div class={styles.stat} key={i}>
-                  <p class={`${styles.statValue} h5`}>{stat.value}</p>
-                  <p class={styles.statLabel}>{stat.label}</p>
-                </div>
-              }
-              </For>
+
+            <div class={styles.sectionTitle}>
+              <h2>{data()[0].heading}</h2>
+              <h6>{data()[0].subheading}</h6>
             </div>
+
+            <div class={styles.sectionMedia}>
+
+            </div>
+
           </div>
 
           <div class={styles.servicesCategories}>
             <For each={data()[0].services}>{(service, i) =>
               <div class={styles.serviceCategory} key={i}>
-                <div class={styles.serviceText}>
-                  <p class={`${styles.serviceTitle} h5`}>{service.title}</p>
-                  <p class={`${styles.serviceDescription} caption`}>{service.description}</p>
+                <div class={styles.serviceTitle}>
+                  <p class={styles.sectionNumber}>{i() + 1}</p>
                 </div>
                 <ul class={styles.serviceDeliverables}>
+                  <p class={styles.serviceName}>{service.title}</p>
                   <For each={service.deliverables}>{(deliverable, j) =>
-                    <li class="caption" key={j}>{deliverable}</li>
+                    <li class={styles.deliverable} key={j}>{deliverable}</li>
                   }
                   </For>
                 </ul>
@@ -45,7 +43,6 @@ export default function Services() {
           </div>
         </Show>
 
-      </div>
     </section>
   )
 }
