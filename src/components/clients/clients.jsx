@@ -16,25 +16,28 @@ export default function Clients() {
     const initScrollAnimation = (el) => {
 
         // Check for reduced motion preference
-        if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        // if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
 
             scrollerRow.forEach((row, i) => {
+
+                row.dataset.animateActive = true;
 
                 const scrollerChildren = Array.from(row.children)
     
                 scrollerChildren.forEach((child, i) => {
                     // console.log(child)
                     const clonedElement = child.cloneNode(true)
-                    clonedElement.setAttribute("aria-hidden", true)
+                    // clonedElement.setAttribute("aria-hidden", true)
                     row.appendChild(clonedElement)
                 })
             })
-        }
+        // }
     }
     
     createEffect(() => {
         if (!data.loading && !data.error && scrollerRow.length > 0) {
             initScrollAnimation()
+            console.log('init')
         }
     })
     

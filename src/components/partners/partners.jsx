@@ -19,22 +19,23 @@ export default function Partners() {
     const splitString = string.split('$')
 
     if (data()[0].inlineLogo) {
-      console.log(splitString)
+      
+      splitString.forEach((string, i) => {
+        const node = document.createElement('span')
+        node.textContent = string
+        el.appendChild(node)
+  
+        if (i == 0) {
+          const image = document.createElement('img')
+          image.src = urlFor(data()[0].inlineLogo).width(800).url()
+          image.dataset.inline = true
+          el.appendChild(image)
+  
+        }
+      })
     }
 
-    splitString.forEach((string, i) => {
-      const node = document.createElement('span')
-      node.textContent = string
-      el.appendChild(node)
-
-      if (i == 0) {
-        const image = document.createElement('img')
-        image.src = urlFor(data()[0].inlineLogo).width(800).url()
-        image.dataset.inline = true
-        el.appendChild(image)
-
-      }
-    })
+    
 
 
 

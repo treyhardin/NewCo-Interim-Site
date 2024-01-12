@@ -8,23 +8,6 @@
     gap: var(--space-sm);
 }
 
-.clientCardRow {
-    --anim-duration: 100s;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    gap: var(--space-sm);
-    margin: 0;
-    padding: 0;
-    width: max-content;
-    animation: scrollClientCards var(--anim-duration) linear 0s infinite;
-    will-change: translate;
-}
-
-.clientCardRow:nth-child(2n) {
-    animation: scrollClientCardsInverse var(--anim-duration) linear 0s infinite;
-}
-
 @keyframes scrollClientCards {
     to {
         translate: calc(-50% - var(--space-sm) / 2) 0;
@@ -36,6 +19,27 @@
         translate: calc(-50% - var(--space-sm) / 2) 0;
     }
 }
+
+.clientCardRow {
+    --anim-duration: 100s;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: var(--space-sm);
+    margin: 0;
+    padding: 0;
+    width: max-content;
+    will-change: translate, width;
+}
+
+.clientCardRow[data-animate-active="true"] {
+    animation: scrollClientCards var(--anim-duration) linear 0.1s infinite normal forwards;
+}
+
+.clientCardRow[data-animate-active="true"]:nth-child(2n) {
+    animation: scrollClientCardsInverse var(--anim-duration) linear 0s infinite normal forwards;
+}
+
 
 
 .clientCard {
