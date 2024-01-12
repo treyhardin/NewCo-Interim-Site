@@ -308,7 +308,10 @@ textarea {
 }
 
 .hs-button {
-  width: 100%; 
+  width: 100%;
+  text-align: center;
+  margin-top: var(--space-md);
+  justify-content: center;
 }
 
 .hs-error-msgs {
@@ -321,12 +324,15 @@ textarea {
 }
 
 .hs-error-msg,
-.hs-richtext p {
-  font-size: max( var(--fluid-font-size), calc(var(--font-size-mobile) * 1px) );
+.hs-richtext p,
+.hs-richtext a {
   font-weight: normal;
-  --font-size-desktop: 14;
-  --font-size-mobile: 12;
+  font-size: 12px;
   color: var(--color-light);
+}
+
+.hs-richtext a {
+  text-decoration: underline;
 }
 
 .hs-error-msg {
