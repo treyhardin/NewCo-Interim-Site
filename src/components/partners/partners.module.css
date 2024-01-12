@@ -1,19 +1,27 @@
 .partners {
-  padding: var(--space-xl) var(--page-margin);
+  padding: var(--header-height) var(--page-margin) var(--space-xl);
   display: flex;
   flex-direction: column;
+  /* align-items: center; */
   gap: var(--space-lg);
   overflow: hidden;
 }
 
 .sectionTitle {
-  border-bottom: 1px solid var(--color-reverse);
+  /* border-bottom: 1px solid var(--color-reverse); */
+  max-width: 90ch;
+  /* text-align: center; */
+}
+
+.sectionTitle img {
+  height: 1em;
+  vertical-align: middle;
 }
 
 .partnerLogos {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  margin: 0 -15vw;
+  margin: 0 -10vw;
   /* width: 100%; */
   /* width: max-content; */
   /* gap: var(--space-lg); */

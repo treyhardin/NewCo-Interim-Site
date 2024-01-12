@@ -11,91 +11,43 @@ export default function Partners() {
   const maxLogos = 18
   const transitionDelay = 0.6 // Seconds
   const logoChangeDelay = 2 // Seconds
+  
+  const addInlineLogo = (el, string) => {
 
-  const initLogoAnimation = () => {
-    
-    const logoElements = Array.from(logoContainer.children)
-    const logoCount = logoElements.length
+    // console.log(el.textContent)
 
-    let activeLogos = []
-    let pendingLogos = []
+    const splitString = string.split('$')
 
-    data()[0].logos.forEach((logo, i) => {
+    if (data()[0].inlineLogo) {
+      console.log(splitString)
+    }
 
-      const url = urlFor(logo).url()
-      // console.log(url)
+    splitString.forEach((string, i) => {
+      const node = document.createElement('span')
+      node.textContent = string
+      el.appendChild(node)
 
-      if (i < maxLogos) {
-        activeLogos.push(url)
-      } else {
-        pendingLogos.push(url)
+      if (i == 0) {
+        const image = document.createElement('img')
+        image.src = urlFor(data()[0].inlineLogo).width(800).url()
+        image.dataset.inline = true
+        el.appendChild(image)
+
       }
     })
 
 
-    const pendingLogoCount = pendingLogos.length
-
-    const cycleLogos = () => {
-
-      setInterval(() => {
-
-        const elementIndex = Math.floor(Math.random() * maxLogos)
-        const randomElement = logoContainer.children[elementIndex]
-        const activeImage = randomElement.querySelector('img')
-
-        const randomPendingIndex = Math.floor(Math.random() * pendingLogoCount)
-        const randomPendingLogo = pendingLogos[randomPendingIndex]
-
-        // activeLogos[randomActiveIndex] = randomPendingLogo
-
-        console.log(activeLogos)
-        console.log(activeImage.src)
-
-        activeLogos = activeLogos.filter((item, i) => item !== activeImage.src)
-        activeLogos.push(randomPendingLogo)
-
-        pendingLogos = pendingLogos.filter((item, i) => item !== randomPendingLogo)
-        pendingLogos.push(activeImage.src)
-
-        // pendingLogos[randomPendingIndex] = data()[0].logos[randomPendingIndex + maxLogos - 1]
-
-        // console.log(activeLogos[randomActiveIndex])
-        // console.log(pendingLogos[randomPendingIndex])
-
-        // console.log(activeLogos)
-        // console.log(pendingLogos)
-
-
-        randomElement.dataset.activeAnimation = true
-
-        setTimeout(() => {
-          activeImage.src = randomPendingLogo
-          randomElement.dataset.activeAnimation = false
-        }, transitionDelay * 1000);
-
-
-        // console.log(logoQueue)
-
-      }, logoChangeDelay * 1000);
-
-    }
-
-    // cycleLogos()
-
 
   }
-
-  createEffect(() => {
-    if (data() && logoContainer) {
-      initLogoAnimation()
-    }
-  })
 
   return (
     <section class={styles.partners} id="partners">
       <Show when={data()}>
         <div class={styles.sectionTitle}>
-          <h3>{data()[0].heading}</h3>
+          <h1 ref={el => addInlineLogo(el, data()[0].heading)}></h1>
+          {/* <Show when={data()[0].inlineLogo}>
+            <img src={urlFor(data()[0].inlineLogo).url()} />
+          </Show> */}
         </div>
         <div class={styles.partnerLogos} ref={logoContainer}>
           <For each={data()[0].logos}>{(logo, i) => 
