@@ -51,7 +51,7 @@ export default function Clients() {
                     <Show when={i() <= data().length / 3}>
                     <div class={styles.clientCard} key={i()}>
                         <img width="33vw" height="30vh" class={styles.clientImage} src={urlFor(client.image).width(1200)} />
-                        <img width="70%" height="20%" class={styles.clientLogo} src={urlFor(client.logo).width(1000)} />
+                        <img class={styles.clientLogo} src={urlFor(client.logo).width(1000)} />
                     </div>
                     </Show>
                 }</For>
