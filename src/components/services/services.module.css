@@ -6,7 +6,6 @@
   align-items: flex-start;
   gap: var(--space-3xl);
   flex-grow: 1;
-  max-width: var(--content-margin);
 }
 
 /* .servicesInfo,
@@ -50,11 +49,13 @@
   height: 100%;
   object-fit: cover;
   opacity: 0;
-  transition: opacity var(--anim-lg);
+  scale: 1.1;
+  transition: opacity var(--anim-lg), scale var(--anim-lg);
 }
 
 .serviceImage[data-active="true"] {
   opacity: 1;
+  scale: 1;
 }
 
 .servicesCategories {
@@ -62,9 +63,8 @@
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  /* gap: var(--space-3xl); */
+  max-width: 70ch;
   gap: 20lvh;
-  /* padding-bottom: 100lvh; */
 }
 
 .serviceCategory {
