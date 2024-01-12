@@ -32,7 +32,7 @@
 
 .servicesInfo[data-animated="false"] .sectionTitle {
   opacity: 0;
-  translate: 0 10vh;
+  translate: 60px 0;
 }
 
 .sectionMedia {
@@ -77,14 +77,14 @@
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  max-width: 70ch;
+  /* max-width: 70ch; */
   gap: 20lvh;
 }
 
 .serviceCategory {
   display: flex;
-  flex-direction: row;
-  align-items: flex-start;
+  flex-direction: column;
+  align-items: stretch;
   padding: var(--header-height) 0 var(--space-md);
   gap: var(--space-md);
   color: var(--color-subdued);
@@ -96,14 +96,28 @@
   color: var(--color-reverse);
 }
 
+.serviceText {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+}
+
+.serviceTitle {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .serviceNumber {
   composes: h6 from '../../index.css';
-  padding-top: var(--space-xs);
+  /* padding-top: var(--space-xs); */
 }
 
 .serviceName {
   composes: h3 from '../../index.css';
-  margin-bottom: var(--space-lg);
+  flex: 0 0 90%;
+  /* margin-bottom: var(--space-lg); */
 }
 
 .serviceDeliverables {
@@ -111,11 +125,13 @@
   padding: 0;
   display: flex;
   flex-direction: column;
+  align-items: flex-end;
   gap: var(--space-sm);
   list-style: none;
 }
 
 .deliverable {
+  width: 90%;
   composes: h6 from '../../index.css';
 }
 
@@ -152,11 +168,29 @@
     min-height: unset;
     padding: 0;
     flex-direction: column;
-    gap: var(--space-2xs);
+    gap: var(--space-lg);
+  }
+
+  .serviceText {
+    flex-direction: row;
+    justify-content: space-between;
+    /* justify-content: flex-start; */
+    align-items: flex-start;
+    gap: var(--space-lg);
+  }
+
+  .serviceTitle {
+    justify-content: flex-start;
+    gap: var(--space-md);
   }
 
   .serviceName {
+    flex-basis: auto;
     margin-bottom: var(--space-sm);
+  }
+
+  .deliverable {
+    width: 100%;
   }
 
 }

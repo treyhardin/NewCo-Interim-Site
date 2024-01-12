@@ -52,14 +52,22 @@ export default function Services() {
               <div class={styles.serviceCategory} key={i} data-active={i() == activeServiceIndex()} data-index={i()} ref={el => activeServiceObserver.observe(el)}>
                 
                 <img class={styles.serviceImageInline} src={urlFor(service.image).width(1280).url()} />
-                <p class={styles.serviceNumber}>{`0${i() + 1}.`}</p>
-                <ul class={styles.serviceDeliverables}>
-                  <p class={styles.serviceName}>{service.title}</p>
-                  <For each={service.deliverables}>{(deliverable, j) =>
-                    <li class={styles.deliverable} key={j}>{deliverable}</li>
-                  }
-                  </For>
-                </ul>
+
+                <div class={styles.serviceText}>
+
+                  <div class={styles.serviceTitle}>
+                    <p class={styles.serviceNumber}>{`0${i() + 1}.`}</p>
+                    <p class={styles.serviceName}>{service.title}</p>
+                  </div>
+
+                  <ul class={styles.serviceDeliverables}>
+                    <For each={service.deliverables}>{(deliverable, j) =>
+                      <li class={styles.deliverable} key={j}>{deliverable}</li>
+                    }
+                    </For>
+                  </ul>
+                </div>
+
               </div>
             }
             </For>
