@@ -19,7 +19,7 @@
   display: flex;
   flex-direction: column;
   justify-content: stretch;
-  gap: var(--space-2xl);
+  gap: var(--space-3xl);
   position: sticky;
   top: 0;
   height: 100lvh;
@@ -83,8 +83,13 @@
 }
 
 .serviceNumber {
-  composes: caption from '../../index.css';
+  composes: h6 from '../../index.css';
   padding-top: var(--space-xs);
+}
+
+.serviceName {
+  composes: h3 from '../../index.css';
+  margin-bottom: var(--space-lg);
 }
 
 .serviceDeliverables {
@@ -95,11 +100,6 @@
   gap: var(--space-sm);
   flex: 50% 0 0;
   list-style: none;
-}
-
-.serviceName {
-  composes: h3 from '../../index.css';
-  margin-bottom: var(--space-sm);
 }
 
 .deliverable {
