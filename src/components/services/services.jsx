@@ -1,7 +1,7 @@
 import { For, Show, createEffect, createResource, createSignal } from 'solid-js'
 import styles from './services.module.css'
 import { getServicesContent, urlFor } from '../../utilities/sanity-client'
-import { observer } from '../../utilities/intersectionObserver'
+import { navigationObserver, observer } from '../../utilities/intersectionObserver'
 
 export default function Services() {
 
@@ -26,7 +26,7 @@ export default function Services() {
   let activeServiceObserver = new IntersectionObserver(callback, options);
 
   return (
-    <section class={styles.services} id="services">
+    <section class={styles.services} id="services" ref={el => navigationObserver.observe(el)}>
 
         <Show when={data()}>
           <div class={styles.servicesInfo} data-animated="false" ref={el => observer.observe(el)}>

@@ -89,7 +89,7 @@
   gap: var(--space-md);
   color: var(--color-subdued);
   transition: color var(--anim-sm);
-  min-height: 100lvh;
+  min-height: 80lvh;
 }
 
 .serviceCategory[data-active="true"] {

@@ -1,7 +1,7 @@
 import { Show, createEffect, createResource } from 'solid-js'
 import styles from './partners.module.css'
 import { getPartnersSettings, urlFor } from '../../utilities/sanity-client'
-import { observer } from '../../utilities/intersectionObserver'
+import { navigationObserver, observer } from '../../utilities/intersectionObserver'
 
 export default function Partners() {
 
@@ -43,7 +43,7 @@ export default function Partners() {
   }
 
   return (
-    <section class={styles.partners} id="partners">
+    <section class={styles.partners} id="partners" ref={el => navigationObserver.observe(el)}>
       <Show when={data()}>
         <div class={styles.sectionTitle} data-animated="false" ref={el => observer.observe(el)}>
           <h1 ref={el => addInlineLogo(el, data()[0].heading)}></h1>

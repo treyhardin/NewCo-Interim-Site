@@ -1,7 +1,7 @@
 import { For, Show, createResource } from 'solid-js'
 import { blocksToText, getAboutContent, urlFor } from '../../utilities/sanity-client'
 import styles from './about.module.css'
-import { observer } from '../../utilities/intersectionObserver'
+import { navigationObserver, observer } from '../../utilities/intersectionObserver'
 
 export default function About() {
 
@@ -10,7 +10,7 @@ export default function About() {
 
   return (
     <Show when={data()}>
-      <section class={styles.about} id="about">
+      <section class={styles.about} id="about" ref={el => navigationObserver.observe(el)}>
 
         <div class={styles.sectionContent} data-animated="false" ref={el => {
           observer.observe(el)

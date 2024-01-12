@@ -70,6 +70,12 @@
     background-color: transparent;
     border: none;
     border-radius: 0;
+    transition: background-color var(--anim-sm), color var(--anim-sm);
+}
+
+.navigationLink[data-active="true"] {
+    background-color: var(--color-reverse);
+    color: var(--color-ink);
 }
 
 .navigationLink:hover {

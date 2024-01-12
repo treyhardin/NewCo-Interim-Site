@@ -1,7 +1,7 @@
 import { For, Show, createEffect, createResource } from 'solid-js'
 import styles from './clients.module.css'
 import { getClients, urlFor } from '../../utilities/sanity-client'
-import { observer } from '../../utilities/intersectionObserver'
+import { navigationObserver, observer } from '../../utilities/intersectionObserver'
 
 
 export default function Clients() {
@@ -40,6 +40,7 @@ export default function Clients() {
     
     return (
         <section class={styles.clients} id="clients" data-animated="false" ref={el => {
+            navigationObserver.observe(el)
             setTimeout(() => {
                 el.dataset.animated = true
             }, 1);

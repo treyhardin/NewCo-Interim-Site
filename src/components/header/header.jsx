@@ -1,9 +1,12 @@
-import { For, createEffect, createResource, onMount } from 'solid-js'
+import { For, createEffect, createResource, createSignal, onMount } from 'solid-js'
 import { getNavigationSettings } from '../../utilities/sanity-client'
 import {toHTML} from '@portabletext/to-html'
 import styles from './header.module.css'
 import { arrowIcon, emailIcon, instagramIcon, linkedInIcon, longArrowIcon, twitterIcon } from '../../utilities/icons'
 import { lenis } from '../../App'
+
+
+export const [ activeNavigation, setActiveNavigation ] = createSignal(null)
 
 export default function Header() {
 
@@ -36,10 +39,10 @@ export default function Header() {
                                 <a href={link.linkURL} class={styles.navigationLink}>{link.linkText}</a>
                             }
                             </For> */}
-                            <button class={styles.navigationLink} onClick={() => lenis.scrollTo("#clients")}>Clients</button>
-                            <button class={styles.navigationLink} onClick={() => lenis.scrollTo("#about")}>About</button>
-                            <button class={styles.navigationLink} onClick={() => lenis.scrollTo("#services")}>Services</button>
-                            <button class={styles.navigationLink} onClick={() => lenis.scrollTo("#partners")}>Partners</button>
+                            <button class={styles.navigationLink} data-active={activeNavigation() == "clients" ? true : false} onClick={() => lenis.scrollTo("#clients")}>Clients</button>
+                            <button class={styles.navigationLink} data-active={activeNavigation() == "about" ? true : false} onClick={() => lenis.scrollTo("#about")}>About</button>
+                            <button class={styles.navigationLink} data-active={activeNavigation() == "services" ? true : false} onClick={() => lenis.scrollTo("#services")}>Services</button>
+                            <button class={styles.navigationLink} data-active={activeNavigation() == "partners" ? true : false} onClick={() => lenis.scrollTo("#partners")}>Partners</button>
                         </div>
                     </div>
                     <div class={styles.utilityMenu}>

@@ -1,6 +1,6 @@
 import { createEffect, createSignal } from 'solid-js'
 import styles from './contact.module.css'
-import { observer } from '../../utilities/intersectionObserver'
+import { navigationObserver, observer } from '../../utilities/intersectionObserver'
 
 export default function Contact() {
 
@@ -57,7 +57,10 @@ export default function Contact() {
 
 
   return (
-    <section class={styles.contact} id="contact" data-animated="false" ref={el => observer.observe(el)}>
+    <section class={styles.contact} id="contact" data-animated="false" ref={el => {
+      observer.observe(el)
+      navigationObserver.observe(el)
+    }}>
       <div class={styles.sectionTitle}>
         <h2>Get in Touch</h2>
         <p>Lorem ipsum dolor sit amet.</p>

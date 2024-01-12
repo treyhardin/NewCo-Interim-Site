@@ -15,11 +15,6 @@ export const lenis = new Lenis()
 
 function App() {
 
-
-  lenis.on('scroll', (e) => {
-    // console.log(e)
-  })
-
   function raf(time) {
     lenis.raf(time)
     requestAnimationFrame(raf)
