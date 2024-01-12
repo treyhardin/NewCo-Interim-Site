@@ -32,7 +32,7 @@ export default function Header() {
                 </Show>
                 <div class={styles.headerMenu}>
                     <div class={styles.navigationMenu}>
-                        <a href="#" class={styles.logo}>Domaine<sup>&#174;</sup></a>
+                        <a href="#" class={styles.logo}>Domaine<sup>&#8482;</sup></a>
 
                         <div class={styles.navigationLinks}>
                             {/* <For each={data()[0].links}>{(link, i) =>
