@@ -15,13 +15,33 @@ export function urlFor(source) {
   return builder.image(source)
 }
 
+export const blocksToText = (blocks, el) => {
+
+  blocks.map(block => {
+      block.children.map(child => {
+
+          if (child.marks.length <= 0) {
+              const textNode = document.createTextNode(child.text)
+              el.appendChild(textNode)
+          }
+
+          if (child.marks[0] == "em") {
+              const emphasisElement = document.createElement("em")
+              const textNode = document.createTextNode(child.text)
+              emphasisElement.appendChild(textNode)
+              el.appendChild(emphasisElement)
+          }
+      })
+  })
+}
+
 export async function getNavigationSettings() {
   const navigationSettings = await client.fetch('*[_type == "navigationSettings"]{ showPromoBar, promoBarContent, links, instagramURL, linkedInURL, twitterURL, "logoURL": logo.asset -> url, showButton, buttonURL, buttonText}')
   return navigationSettings
 }
 
 export async function getHeroSettings() {
-  const heroSettings = await client.fetch('*[_type == "heroSettings"]{ heading, title, subheading, showVideo, "videoURL": video.asset -> url, "imageURL": image.asset -> url}')
+  const heroSettings = await client.fetch('*[_type == "heroSettings"]{ heading, subheading, showVideo, "videoURL": video.asset -> url, "imageURL": image.asset -> url}')
   return heroSettings
 }
 
