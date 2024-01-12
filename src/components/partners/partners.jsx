@@ -1,6 +1,7 @@
 import { Show, createEffect, createResource } from 'solid-js'
 import styles from './partners.module.css'
 import { getPartnersSettings, urlFor } from '../../utilities/sanity-client'
+import { observer } from '../../utilities/intersectionObserver'
 
 export default function Partners() {
 
@@ -19,7 +20,7 @@ export default function Partners() {
     const splitString = string.split('$')
 
     if (data()[0].inlineLogo) {
-      
+
       splitString.forEach((string, i) => {
         const node = document.createElement('span')
         node.textContent = string
@@ -44,16 +45,13 @@ export default function Partners() {
   return (
     <section class={styles.partners} id="partners">
       <Show when={data()}>
-        <div class={styles.sectionTitle}>
+        <div class={styles.sectionTitle} data-animated="false" ref={el => observer.observe(el)}>
           <h1 ref={el => addInlineLogo(el, data()[0].heading)}></h1>
-          {/* <Show when={data()[0].inlineLogo}>
-            <img src={urlFor(data()[0].inlineLogo).url()} />
-          </Show> */}
         </div>
         <div class={styles.partnerLogos} ref={logoContainer}>
           <For each={data()[0].logos}>{(logo, i) => 
             <Show when={i() < maxLogos}>
-              <div class={styles.partnerLogo}>
+              <div class={styles.partnerLogo} data-animated="false" data-animation-delay={i() * 20} ref={el => observer.observe(el)}>
                 <img src={urlFor(logo)} />
               </div>
             </Show>

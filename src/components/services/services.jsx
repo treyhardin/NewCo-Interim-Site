@@ -29,11 +29,9 @@ export default function Services() {
     <section class={styles.services} id="services">
 
         <Show when={data()}>
-          <div class={styles.servicesInfo} >
+          <div class={styles.servicesInfo} data-animated="false" ref={el => observer.observe(el)}>
 
-            <div class={styles.sectionTitle} data-animated="false" ref={el => {
-                observer.observe(el)
-              }}>
+            <div class={styles.sectionTitle}>
               <h2>{data()[0].heading}</h2>
               <Show when={data()[0].subheading}>
                 <h6>{data()[0].subheading}</h6>

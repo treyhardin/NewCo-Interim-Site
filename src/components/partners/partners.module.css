@@ -9,6 +9,14 @@
 
 .sectionTitle {
   max-width: 90ch;
+  opacity: 1;
+  translate: 0 0;
+  transition: opacity var(--anim-lg), translate var(--anim-lg);
+}
+
+.sectionTitle[data-animated="false"] {
+  opacity: 0;
+  translate: 0 60px;
 }
 
 .sectionTitle img {
@@ -29,7 +37,11 @@
   aspect-ratio: 2 / 1;
   position: relative;
   opacity: 1;
-  transition: opacity .3s var(--anim-easing), translate .3s var(--anim-easing);
+  transition: opacity var(--anim-lg);
+}
+
+.partnerLogo[data-animated="false"] {
+  opacity: 0;
 }
 
 /* .partnerLogo[data-active-animation="true"] {

@@ -1,12 +1,23 @@
 let options = {
   rootMargin: "0px",
-  threshold: 0.9,
+  threshold: 0.5,
 };
 
 const callback = (entries, observer) => {
   entries.forEach((entry) => {
+
     if (entry.isIntersecting) {
-      entry.target.dataset.animated = true
+
+      let delay = 0
+
+      if (entry.target.dataset.animationDelay) {
+        delay = entry.target.dataset.animationDelay
+      }
+
+      setTimeout(() => {
+        entry.target.dataset.animated = true
+      }, delay)
+      
     }
   });
 };

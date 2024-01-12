@@ -6,10 +6,11 @@
   align-items: flex-start;
   gap: var(--space-3xl);
   flex-grow: 1;
+  width: 100%;
 }
 
 .servicesInfo {
-  flex: 1 1 auto;
+  flex: 0 1 auto;
   display: flex;
   flex-direction: column;
   justify-content: stretch;
@@ -29,7 +30,7 @@
   transition: opacity var(--anim-lg), translate var(--anim-lg);
 }
 
-.sectionTitle[data-animated="false"] {
+.servicesInfo[data-animated="false"] .sectionTitle {
   opacity: 0;
   translate: 0 10vh;
 }
@@ -43,7 +44,7 @@
   transition: opacity var(--anim-lg);
 }
 
-.sectionTitle[data-animated="false"] .sectionMedia {
+.servicesInfo[data-animated="false"] .sectionMedia {
   opacity: 0;
 }
 

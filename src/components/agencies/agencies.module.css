@@ -3,11 +3,13 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   gap: var(--space-lg);
+  min-height: 60lvh;
 }
 
 .sectionTitle {
-  flex: 40% 1 0;
+  flex: 1 0  40% ;
   /* color: var(--color-light); */
 }
 
@@ -16,6 +18,7 @@
   flex-direction: row;
   gap: var(--space-lg);
   align-items: flex-start;
+  padding: var(--space-xl) 0 0;
 }
 
 .agencyCard {
@@ -24,6 +27,14 @@
   flex-direction: column;
   align-items: flex-start;
   gap: var(--space-sm);
+  opacity: 1;
+  translate: 0 0;
+  transition: opacity var(--anim-lg), translate var(--anim-lg);
+}
+
+.agencyCard[data-animated="false"] {
+  opacity: 0;
+  translate: 0 60px;
 }
 
 .agencyLogo {
@@ -36,8 +47,14 @@
 
 @media screen and (max-width: 880px) {
 
+  .sectionTitle {
+    flex: 0 0 auto;
+  }
+
   .agencies {
     flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
   }
 
   .agencyLogo {
