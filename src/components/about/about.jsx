@@ -40,6 +40,7 @@ export default function About() {
             loop
             muted
             class={styles.video}
+            onloadedmetadata="this.muted = true"
           />
         </div>
       </section>

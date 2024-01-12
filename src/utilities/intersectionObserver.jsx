@@ -32,22 +32,8 @@ let navigationObserverOptions = {
 const navigationCallback = (entries, observer) => {
 
   entries.forEach((entry) => {
-
     if (entry.isIntersecting) {
-
       setActiveNavigation(entry.target.id)
-
-
-      // let delay = 0
-
-      // if (entry.target.dataset.animationDelay) {
-      //   delay = entry.target.dataset.animationDelay
-      // }
-
-      // setTimeout(() => {
-      //   entry.target.dataset.animated = true
-      // }, delay)
-      
     }
   });
 };
