@@ -5,7 +5,6 @@
   justify-content: stretch;
   align-items: flex-start;
   gap: var(--space-xl);
-  /* min-height: 100lvh; */
 }
 
 .sectionContent,
@@ -17,6 +16,18 @@
   display: flex;
   flex-direction: column;
   gap: var(--space-md);
+  opacity: 1;
+  translate: 0 0;
+  transition: opacity var(--anim-lg), translate var(--anim-lg);
+}
+
+.sectionContent[data-animated="false"] {
+  opacity: 0;
+  translate: 0 60px;
+}
+
+.sectionContent[data-animated="false"] .stat {
+  opacity: 0;
 }
 
 .sectionTitle {
@@ -32,10 +43,29 @@
 }
 
 .stat {
+  --transition-stagger: .2s;
   border: 1px solid var(--color-subdued);
   border-radius: var(--radius-sm);
   padding: var(--space-md);
   color: var(--color-light);
+  opacity: 1;
+  transition: opacity var(--anim-lg);
+}
+
+.stat:nth-child(2n) {
+  transition-delay: calc(var(--transition-stagger) * 1);
+}
+
+.stat:nth-child(3n) {
+  transition-delay: calc(var(--transition-stagger) * 2);
+}
+
+.stat:nth-child(4n) {
+  transition-delay: calc(var(--transition-stagger) * 3);
+}
+
+.stat:nth-child(5n) {
+  transition-delay: calc(var(--transition-stagger) * 4);
 }
 
 .stat em {
@@ -45,8 +75,12 @@
 .sectionMedia {
   position: relative;
   align-self: stretch;
-  /* width: 100%;
-  height: 100%; */
+  opacity: 1;
+  transition: opacity var(--anim-lg);
+}
+
+.sectionMedia[data-animated="false"] {
+  opacity: 0;
 }
 
 .video {

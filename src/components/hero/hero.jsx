@@ -10,11 +10,12 @@ export default function Hero() {
     return (
         <section class={styles.hero}>
             <Show when={data()}>
-                <div class={styles.heroContent}>
-                    {/* <h1>{data()[0].heading}</h1> */}
+                <div class={styles.heroContent} data-animated="false" ref={el => {
+                    setTimeout(() => {
+                        el.dataset.animated = true
+                    }, 1);
+                }}>
                     <h1 ref={el => blocksToText(data()[0].heading, el) }></h1>
-                    {/* <p class={`h6`}>{data()[0].subheading}</p>
-                    {longArrowIcon} */}
                 </div>
                 <Show when={data()[0].showVideo && data()[0].videoURL}>
                     <div class={styles.heroBackground}>

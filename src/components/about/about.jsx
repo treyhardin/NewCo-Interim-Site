@@ -1,6 +1,7 @@
 import { For, Show, createResource } from 'solid-js'
 import { blocksToText, getAboutContent, urlFor } from '../../utilities/sanity-client'
 import styles from './about.module.css'
+import { observer } from '../../utilities/intersectionObserver'
 
 export default function About() {
 
@@ -11,7 +12,9 @@ export default function About() {
     <Show when={data()}>
       <section class={styles.about} id="about">
 
-        <div class={styles.sectionContent}>
+        <div class={styles.sectionContent} data-animated="false" ref={el => {
+          observer.observe(el)
+        }}>
           <div class={styles.sectionTitle}>
             <h2>{data()[0].heading}</h2>
             <Show when={data()[0].subheading}>
@@ -27,7 +30,9 @@ export default function About() {
           </div>
         </div>
 
-        <div class={styles.sectionMedia}>
+        <div class={styles.sectionMedia} data-animated="false" ref={el => {
+          observer.observe(el)
+        }}>
           <video 
             src={data()[0].videoURL}
             poster={urlFor(data()[0].image).width(800).url()}

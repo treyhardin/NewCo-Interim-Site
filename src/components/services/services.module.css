@@ -24,6 +24,14 @@
   display: flex;
   flex-direction: column;
   gap: var(--space-sm);
+  opacity: 1;
+  translate: 0 0;
+  transition: opacity var(--anim-lg), translate var(--anim-lg);
+}
+
+.sectionTitle[data-animated="false"] {
+  opacity: 0;
+  translate: 0 10vh;
 }
 
 .sectionMedia {
@@ -31,6 +39,12 @@
   position: relative;
   border-radius: var(--radius-lg);
   overflow: hidden;
+  opacity: 1;
+  transition: opacity var(--anim-lg);
+}
+
+.sectionTitle[data-animated="false"] .sectionMedia {
+  opacity: 0;
 }
 
 .serviceImage {
@@ -41,7 +55,8 @@
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  /* object-fit: cover; */
+  object-fit: contain;
   opacity: 0;
   scale: 1.1;
   transition: opacity var(--anim-lg), scale var(--anim-lg);

@@ -39,6 +39,14 @@
     padding: 0 var(--page-margin);
     z-index: 2;
     color: var(--color-light);
+    opacity: 1;
+    translate: 0 0;
+    transition: opacity var(--anim-lg), translate var(--anim-lg);
+}
+
+.heroContent[data-animated="false"] {
+    opacity: 0;
+    translate: 0 40px;
 }
 
 .hero em {

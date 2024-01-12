@@ -6,7 +6,14 @@
     right: 0;
     left: 0;
     height: var(--header-height);
+    translate: 0 0%;
+    transition: translate var(--anim-lg);
 }
+
+
+.header[data-animated="false"] {
+    translate: 0 -100%;
+} 
 
 .promoBar {
     color: var(--color-ink);

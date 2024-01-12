@@ -1,14 +1,11 @@
-import { For, Show, createEffect, createResource, onMount } from 'solid-js'
+import { For, Show, createEffect, createResource } from 'solid-js'
 import styles from './clients.module.css'
 import { getClients, urlFor } from '../../utilities/sanity-client'
 import { observer } from '../../utilities/intersectionObserver'
-import { lenis } from '../../App';
-
 
 
 export default function Clients() {
 
-    let cards;
     let scrollerRow = [];
 
     const [ data ] = createResource(getClients)
@@ -16,7 +13,7 @@ export default function Clients() {
     const initScrollAnimation = (el) => {
 
         // Check for reduced motion preference
-        // if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
 
             scrollerRow.forEach((row, i) => {
 
@@ -27,11 +24,11 @@ export default function Clients() {
                 scrollerChildren.forEach((child, i) => {
                     // console.log(child)
                     const clonedElement = child.cloneNode(true)
-                    // clonedElement.setAttribute("aria-hidden", true)
+                    clonedElement.setAttribute("aria-hidden", true)
                     row.appendChild(clonedElement)
                 })
             })
-        // }
+        }
     }
     
     createEffect(() => {
@@ -42,14 +39,18 @@ export default function Clients() {
     })
     
     return (
-        <section class={styles.clients} ref={cards} id="clients">
+        <section class={styles.clients} id="clients" data-animated="false" ref={el => {
+            setTimeout(() => {
+                el.dataset.animated = true
+            }, 1);
+        }}>
 
             <div class={styles.clientCardRow} ref={scrollerRow[0]}>
                 <For each={data()}>{(client, i) =>
                     <Show when={i() <= data().length / 3}>
                     <div class={styles.clientCard} key={i()}>
-                        <img width="500" height="300" class={styles.clientImage} src={urlFor(client.image).width(1200)} />
-                        <img width="500" height="500" class={styles.clientLogo} src={urlFor(client.logo).width(1000)} />
+                        <img width="33vw" height="30vh" class={styles.clientImage} src={urlFor(client.image).width(1200)} />
+                        <img width="70%" height="20%" class={styles.clientLogo} src={urlFor(client.logo).width(1000)} />
                     </div>
                     </Show>
                 }</For>

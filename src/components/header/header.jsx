@@ -1,4 +1,4 @@
-import { For, createEffect, createResource } from 'solid-js'
+import { For, createEffect, createResource, onMount } from 'solid-js'
 import { getNavigationSettings } from '../../utilities/sanity-client'
 import {toHTML} from '@portabletext/to-html'
 import styles from './header.module.css'
@@ -18,7 +18,11 @@ export default function Header() {
     })
 
     return (
-        <header class={styles.header}>
+        <header class={styles.header} data-animated="false" ref={el => {
+            setTimeout(() => {
+                el.dataset.animated = true
+            }, 1)
+        }} >
             <Show when={data()}>
                 <Show when={data()[0].showPromoBar}>
                     <div class={`${styles.promoBar} caption`} ref={promoBarContent}></div>

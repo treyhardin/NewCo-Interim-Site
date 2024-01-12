@@ -1,6 +1,7 @@
 import { For, Show, createEffect, createResource, createSignal } from 'solid-js'
 import styles from './services.module.css'
 import { getServicesContent, urlFor } from '../../utilities/sanity-client'
+import { observer } from '../../utilities/intersectionObserver'
 
 export default function Services() {
 
@@ -22,15 +23,17 @@ export default function Services() {
     });
   };
   
-  let observer = new IntersectionObserver(callback, options);
+  let activeServiceObserver = new IntersectionObserver(callback, options);
 
   return (
     <section class={styles.services} id="services">
 
         <Show when={data()}>
-          <div class={styles.servicesInfo}>
+          <div class={styles.servicesInfo} >
 
-            <div class={styles.sectionTitle}>
+            <div class={styles.sectionTitle} data-animated="false" ref={el => {
+                observer.observe(el)
+              }}>
               <h2>{data()[0].heading}</h2>
               <Show when={data()[0].subheading}>
                 <h6>{data()[0].subheading}</h6>
@@ -48,7 +51,7 @@ export default function Services() {
           <div class={styles.servicesCategories}>
             <For each={data()[0].services}>{(service, i) =>
             
-              <div class={styles.serviceCategory} key={i} data-active={i() == activeServiceIndex()} data-index={i()} ref={el => observer.observe(el)}>
+              <div class={styles.serviceCategory} key={i} data-active={i() == activeServiceIndex()} data-index={i()} ref={el => activeServiceObserver.observe(el)}>
                 
                 <img class={styles.serviceImage} src={urlFor(service.image).width(1280).url()} />
                 <p class={styles.serviceNumber}>{`0${i() + 1}.`}</p>
