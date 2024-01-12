@@ -34,10 +34,10 @@ function App() {
       <Clients />
       <About />
       <Services />
-      {/* <Contact />
+      <Contact />
       <Partners />
       <Agencies />
-      <Footer /> */}
+      <Footer />
     </>
   )
 }
