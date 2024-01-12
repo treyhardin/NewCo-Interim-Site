@@ -50,6 +50,11 @@ export async function getClients() {
   return clients
 }
 
+export async function getAboutContent() {
+  const clients = await client.fetch('*[_type == "about"]{ heading, subheading, stats, "videoURL": video.asset -> url, image}')
+  return clients
+}
+
 export async function getServicesSettings() {
   const servicesSettings = await client.fetch('*[_type == "servicesSettings"]')
   return servicesSettings

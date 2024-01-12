@@ -78,6 +78,7 @@
 
   --page-margin: var(--space-lg);
   --content-margin: 1440px;
+  --header-height: 90px;
 
   /* Icons */
   --icon-sm: 10px;
@@ -164,7 +165,7 @@ h6,
 .h4,
 .h5,
 .h6 {
-  margin: 0 0 0.2em;
+  margin: 0 0 0;
   letter-spacing: -0.05em;
   line-height: 1.1;
   font-weight: 500;
@@ -199,7 +200,7 @@ h2,
 .h2 {
   --font-size-desktop: 60;
   --font-size-mobile: 30;
-  margin-bottom: 0.1em;
+  line-height: 0.92;
 }
 
 h3,

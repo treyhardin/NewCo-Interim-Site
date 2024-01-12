@@ -8,6 +8,7 @@ import Partners from './components/partners/partners'
 import Agencies from './components/agencies/agencies'
 import Footer from './components/footer/footer'
 import Contact from './components/contact/contact'
+import About from './components/about/about'
 
 
 export const lenis = new Lenis()
@@ -31,6 +32,7 @@ function App() {
       <Header />
       <Hero />
       <Clients />
+      <About />
       <Services />
       <Partners />
       <Contact />

@@ -33,6 +33,7 @@ export default function Header() {
                             }
                             </For> */}
                             <button class={styles.navigationLink} onClick={() => lenis.scrollTo("#clients")}>Clients</button>
+                            <button class={styles.navigationLink} onClick={() => lenis.scrollTo("#about")}>About</button>
                             <button class={styles.navigationLink} onClick={() => lenis.scrollTo("#services")}>Services</button>
                             <button class={styles.navigationLink} onClick={() => lenis.scrollTo("#partners")}>Partners</button>
                         </div>
