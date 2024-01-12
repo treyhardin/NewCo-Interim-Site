@@ -2,7 +2,7 @@ import { For, createEffect, createResource } from 'solid-js'
 import { getNavigationSettings } from '../../utilities/sanity-client'
 import {toHTML} from '@portabletext/to-html'
 import styles from './header.module.css'
-import { instagramIcon, linkedInIcon, twitterIcon } from '../../utilities/icons'
+import { arrowIcon, emailIcon, instagramIcon, linkedInIcon, longArrowIcon, twitterIcon } from '../../utilities/icons'
 import { lenis } from '../../App'
 
 export default function Header() {
@@ -25,16 +25,20 @@ export default function Header() {
                 </Show>
                 <div class={styles.headerMenu}>
                     <div class={styles.navigationMenu}>
-                        <a href="#" class={styles.logo}>
-                            <img src={data()[0].logoURL} />
-                        </a>
-                        <For each={data()[0].links}>{(link, i) =>
-                            <a href={link.linkURL} class={styles.navigationLink}>{link.linkText}</a>
-                        }
-                        </For>
+                        <a href="#" class={styles.logo}>Domaine<sup>&#174;</sup></a>
+
+                        <div class={styles.navigationLinks}>
+                            {/* <For each={data()[0].links}>{(link, i) =>
+                                <a href={link.linkURL} class={styles.navigationLink}>{link.linkText}</a>
+                            }
+                            </For> */}
+                            <button class={styles.navigationLink} onClick={() => lenis.scrollTo("#clients")}>Clients</button>
+                            <button class={styles.navigationLink} onClick={() => lenis.scrollTo("#services")}>Services</button>
+                            <button class={styles.navigationLink} onClick={() => lenis.scrollTo("#partners")}>Partners</button>
+                        </div>
                     </div>
                     <div class={styles.utilityMenu}>
-                        <Show when={data()[0].instagramURL}>
+                        {/* <Show when={data()[0].instagramURL}>
                             <a href={data()[0].instagramURL} class={styles.socialLink} target='_blank'>
                                 {instagramIcon}
                             </a>
@@ -48,9 +52,12 @@ export default function Header() {
                             <a href={data()[0].linkedInURL} class={styles.socialLink} target='_blank'>
                                 {linkedInIcon}
                             </a>
-                        </Show>
+                        </Show> */}
                         <Show when={data()[0].showButton && data()[0].buttonText && data()[0].buttonURL}>
-                                <button onClick={() => lenis.scrollTo("#contact")}>{data()[0].buttonText}</button>
+                            <button class={styles.headerButton} onClick={() => lenis.scrollTo("#contact")}>
+                                {data()[0].buttonText}
+                                <div class={styles.buttonIcon}>{emailIcon()}</div>
+                            </button>
                         </Show>
                     </div>
                 </div>

@@ -7,7 +7,7 @@ export default function Services() {
   const [ data ] = createResource(getServicesSettings)
 
   return (
-    <section class={styles.services}>
+    <section class={styles.services} id="services">
       <div class={styles.servicesInner}>
 
         <Show when={data()}>

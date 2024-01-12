@@ -39,7 +39,7 @@ export default function Clients() {
     })
     
     return (
-        <section class={styles.clients} ref={cards}>
+        <section class={styles.clients} ref={cards} id="clients">
 
             <div class={styles.clientCardRow} ref={scrollerRow[0]}>
                 <For each={data()}>{(client, i) =>

@@ -1,30 +1,11 @@
-/* .clients {
-    display: grid;
-    --scroll-offset: 0;
-    gap: var(--space-xl);
-    grid-template-rows: 1fr 1fr 1fr 1fr;
-    grid-template-columns: auto;
-    padding: 0 var(--page-margin);
-    will-change: translate;
-    max-width: unset;
-    overflow: hidden;
-    width: 200%;
-    justify-items: auto;
-} */
-
 .clients {
-    /* max-width: 900px; */
     width: 100vw;
     overflow: hidden;
-    /* align-self: center; */
-    /* margin: 0 auto; */
     margin: 0;
-    padding: 0;
+    padding: var(--space-xl) 0;
     display: flex;
     flex-direction: column;
     gap: var(--space-sm);
-    /* mask: linear-gradient(90deg, transparent 0%, var(--color-reverse) 10%, var(--color-reverse) 90%, transparent 100%);
-    -webkit-mask: linear-gradient(90deg, transparent 0%, var(--color-reverse) 20%, var(--color-reverse) 80%, transparent 100%); */
 }
 
 .clientCardRow {
@@ -32,13 +13,11 @@
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    /* align-items: stretch; */
     gap: var(--space-sm);
     margin: 0;
     padding: 0;
     width: max-content;
     animation: scrollClientCards var(--anim-duration) linear 0s infinite;
-    /* height: 20lvh; */
     will-change: translate;
 }
 

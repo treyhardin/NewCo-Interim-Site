@@ -25,10 +25,22 @@ export const longArrowIcon = (
 
 )
 
-export const arrow = () => {
+export const arrowIcon = () => {
   return (
   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 27 12">
     <path stroke="currentColor" d="M.43 5.9h25m0 0-5-5m5 5-5 5"/>
   </svg>
   )
 }
+
+export const emailIcon = () => {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 26 18">
+      <path stroke="currentColor" d="M24.87 1.098h-24v15.804h24V1.098Zm0 0-12 9.887L.871 1.098"/>
+    </svg>
+  )
+}
+
+
+
+

@@ -1,17 +1,24 @@
 @font-face {
   font-family: 'MaisonNeue';
+  src: url('/MaisonNeue-Medium.otf');
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: 'MaisonNeue';
   src: url('/MaisonNeue-Book.otf');
-  font-weight: normal;
+  font-weight: 400;
 }
 
 @font-face {
   font-family: 'MaisonNeue';
   src: url('/MaisonNeue-Light.ttf');
-  font-weight: lighter;
+  font-weight: 300;
 }
 
 * {
   box-sizing: border-box;
+  min-width: 0;
   
   /* ----  UPDATE THESE VALUES BASED ON DESIGNS ---- */
   --viewport-desktop: 1440; /* The width of the desktop designs */
@@ -42,12 +49,17 @@
   --color-ink: #1C1C1C;
   --color-subdued: #3A3A3A;
   --color-neutral: #B8B8B8;
-  --color-light: #C7C7C7;
+  --color-light: #9d9d9d;
   --color-reverse: #ffffff;
+  --color-accent: #0070FF;
 
   --color-success: rgb(0, 255, 123);
   --color-error: red;
   --color-focus: rgb(60, 0, 255);
+
+  --gradient-ink: linear-gradient(135deg, rgba(28, 28, 28, 1.0) 0%, var(--color-subdued) 100%);
+
+
 
   /* Spacing */
   --space-2xs: 5px;
@@ -92,11 +104,12 @@
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: var(--color-accent);
   text-decoration: inherit;
+  transition: color var(--anim-sm);
 }
 a:hover {
-  color: #535bf2;
+  color: var(--color-accent);
 }
 
 body {
@@ -113,17 +126,25 @@ body {
 button,
 input[type="submit"] {
   border-radius: var(--radius-rounded);
-  border: 1px solid transparent;
   padding: var(--space-xs) var(--space-md);
   font-family: inherit;
   color: var(--color-ink);
   background-color: var(--color-reverse);
   cursor: pointer;
   transition: border-color 0.25s;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--space-xs);
+  text-align: center;
+  border: none;
+  transition: border-color var(--anim-sm), background var(--anim-sm);
 }
+
 button:hover,
 input[type="submit"]:hover {
-  border-color: #646cff;
+  background: var(--color-accent);
+  outline: none;
 }
 /* button:focus, */
 button:focus-visible,
@@ -146,7 +167,7 @@ h6,
   margin: 0 0 0.2em;
   letter-spacing: -0.05em;
   line-height: 1.1;
-  font-weight: lighter;
+  font-weight: 500;
   
   /*   We use max here to ensure that font size never goes smaller than the size in the mobile designs */
   font-size: max( var(--fluid-font-size), calc(var(--font-size-mobile) * 1px) );
@@ -168,10 +189,10 @@ textarea {
 
 h1,
 .h1 {
-  --font-size-desktop: 100;
+  --font-size-desktop: 72;
   --font-size-mobile: 46;
-  line-height: 0.86;
-  letter-spacing: -0.07em;
+  line-height: 0.98;
+  letter-spacing: -0.04em;
 }
 
 h2,

@@ -92,7 +92,7 @@ export default function Partners() {
   })
 
   return (
-    <section class={styles.partners}>
+    <section class={styles.partners} id="partners">
       <Show when={data()}>
         <div class={styles.sectionTitle}>
           <h3>{data()[0].heading}</h3>
