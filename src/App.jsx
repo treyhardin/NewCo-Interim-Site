@@ -34,8 +34,8 @@ function App() {
       <Clients />
       <About />
       <Services />
-      <Partners />
       <Contact />
+      <Partners />
       <Agencies />
       <Footer />
     </>

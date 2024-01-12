@@ -14,7 +14,9 @@ export default function About() {
         <div class={styles.sectionContent}>
           <div class={styles.sectionTitle}>
             <h2>{data()[0].heading}</h2>
-            <h6>{data()[0].subheading}</h6>
+            <Show when={data()[0].subheading}>
+              <h6>{data()[0].subheading}</h6>
+            </Show>
           </div>
           <div class={styles.stats}>
             <For each={data()[0].stats}>{(stat, i) => 

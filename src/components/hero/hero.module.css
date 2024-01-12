@@ -7,14 +7,6 @@
     position: relative;
 }
 
-.hero h1 {
-    color: var(--color-light);
-}
-
-.hero h1 em {
-    color: var(--color-reverse);
-}
-
 .hero::before {
     content: "";
     position: absolute;
@@ -44,23 +36,22 @@
 
 .heroContent {
     width: 80%;
-    /* max-width: 125ch; */
     padding: 0 var(--page-margin);
     z-index: 2;
+    color: var(--color-light);
 }
 
-@keyframes arrowBounce {
-    0% {
-        translate: 0 0px;
+.hero em {
+    color: var(--color-reverse);
+}
+
+@media screen and (max-width: 800px) {
+
+    .hero {
+        min-height: 60lvh;
     }
-    100% {
-        translate: 0 -10px;
+
+    .heroContent {
+        width: 100%;
     }
 }
-
-.heroContent svg {
-    margin-top: var(--space-lg);
-    max-width: 30px;
-    animation: arrowBounce 1s var(--anim-easing) 0s infinite alternate;
-}
-

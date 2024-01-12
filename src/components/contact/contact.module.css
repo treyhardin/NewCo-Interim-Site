@@ -4,7 +4,7 @@
   align-items: center;
   gap: var(--space-xl);
   /* min-height: 100lvh; */
-  padding: var(--header-height) var(--page-margin) var(--space-2xl);
+  padding: var(--header-height) var(--page-margin) var(--space-3xl);
 }
 
 .sectionTitle {
@@ -31,7 +31,7 @@
 }
 
 .radio {
-  padding: var(--space-sm) var(--space-md);
+  padding: var(--space-xs) var(--space-md);
   display: flex;
   flex-direction: row;
   align-items: center;

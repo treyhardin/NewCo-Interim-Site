@@ -7,7 +7,7 @@ export default function Footer() {
   const [ data ] = createResource(getFooterSettings)
 
   return (
-    <footer>
+    <footer class={styles.footer}>
       <Show when={data()}>
         <div class={styles.footerInfo}>
           <p>{data()[0].copyright}</p>

@@ -7,10 +7,19 @@
   align-self: flex-start;
 }
 
+.textLink::before {
+  display: none;
+}
+
 .textLink .text {
   margin: 0;
 }
 
 .textLink svg {
   width: 1em;
+  transition: translate var(--anim-sm);
+}
+
+.textLink:hover svg {
+  translate: 5px 0;
 }

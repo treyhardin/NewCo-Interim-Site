@@ -108,9 +108,26 @@ a {
   color: var(--color-accent);
   text-decoration: inherit;
   transition: color var(--anim-sm);
+  position: relative;
 }
+
 a:hover {
   color: var(--color-accent);
+}
+
+a::before {
+  content: "";
+  height: 1px;
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 0%;
+  background-color: currentColor;
+  transition: width var(--anim-sm);
+}
+
+a:hover::before {
+  width: 100%;
 }
 
 body {
@@ -354,3 +371,11 @@ textarea {
     --fluid-font-size: calc( var(--font-size-desktop) * 100vw / var(--viewport-desktop) );
   }
 }
+
+@media screen and (max-width: 800px) {
+  :root {
+    --page-margin: var(--space-sm);
+  }
+}
+
+

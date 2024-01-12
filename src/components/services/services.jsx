@@ -32,7 +32,9 @@ export default function Services() {
 
             <div class={styles.sectionTitle}>
               <h2>{data()[0].heading}</h2>
-              <h6>{data()[0].subheading}</h6>
+              <Show when={data()[0].subheading}>
+                <h6>{data()[0].subheading}</h6>
+              </Show>
             </div>
 
             <div class={styles.sectionMedia}>
@@ -45,7 +47,10 @@ export default function Services() {
 
           <div class={styles.servicesCategories}>
             <For each={data()[0].services}>{(service, i) =>
+            
               <div class={styles.serviceCategory} key={i} data-active={i() == activeServiceIndex()} data-index={i()} ref={el => observer.observe(el)}>
+                
+                <img class={styles.serviceImage} src={urlFor(service.image).width(1280).url()} />
                 <p class={styles.serviceNumber}>{`0${i() + 1}.`}</p>
                 <ul class={styles.serviceDeliverables}>
                   <p class={styles.serviceName}>{service.title}</p>
