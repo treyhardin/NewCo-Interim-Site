@@ -88,13 +88,15 @@
   align-items: stretch;
   padding: var(--header-height) 0 var(--space-md);
   gap: var(--space-md);
-  color: var(--color-subdued);
-  transition: color var(--anim-sm);
+  /* color: var(--color-light); */
+  transition: opacity var(--anim-lg);
   min-height: 80lvh;
+  opacity: 0.5;
 }
 
 .serviceCategory[data-active="true"] {
-  color: var(--color-reverse);
+  /* color: var(--color-reverse); */
+  opacity: 1;
 }
 
 .serviceText {

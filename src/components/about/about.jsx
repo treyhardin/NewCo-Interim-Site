@@ -18,13 +18,13 @@ export default function About() {
           <div class={styles.sectionTitle}>
             <h2>{data()[0].heading}</h2>
             <Show when={data()[0].subheading}>
-              <h6>{data()[0].subheading}</h6>
+              <h3 class="h6">{data()[0].subheading}</h3>
             </Show>
           </div>
           <div class={styles.stats}>
             <For each={data()[0].stats}>{(stat, i) => 
               <div class={styles.stat}>
-                <h4 ref={el => blocksToText(stat.content, el)}></h4>
+                <h3 class="h4" ref={el => blocksToText(stat.content, el)}></h3>
               </div>
             }</For>
           </div>
