@@ -26,8 +26,8 @@
 
 .partnerLogos {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  margin: 0 -10vw;
+  grid-template-columns: repeat(5, 1fr);
+  margin: 0 -4vw;
 }
 
 .partnerLogo {
