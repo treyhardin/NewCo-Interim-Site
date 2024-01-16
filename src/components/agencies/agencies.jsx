@@ -23,6 +23,7 @@ export default function Agencies() {
                   <TextLink 
                     text={agency.linkText}
                     url={agency.linkURL}
+                    alt={`Link to agency site for ${agency.name}`}
                   />
                 </Show>
               </div>
