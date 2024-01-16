@@ -51,7 +51,7 @@ export default function Services() {
             
               <div class={styles.serviceCategory} key={i} data-active={i() == activeServiceIndex()} data-index={i()} ref={el => activeServiceObserver.observe(el)}>
                 
-                <img class={styles.serviceImageInline} src={urlFor(service.image).width(1280).url()} />
+                <img class={styles.serviceImageInline} src={urlFor(service.image).width(1280).url()} alt={`Supporting image for ${service.title} service.`}/>
 
                 <div class={styles.serviceText}>
 
