@@ -14,7 +14,7 @@ export default function Footer() {
         </div>
         <div class={styles.footerLinks}>
           <For each={data()[0].links}>{(link, i) =>
-            <a class={styles.footerLink} href={link.linkURL} key={i}>{link.linkText}</a>
+            <a class={styles.footerLink} href={link.linkURL} key={i} aria-label={`Link to Domaine's ${link.linkText}`}>{link.linkText}</a>
           }
           </For>
         </div>

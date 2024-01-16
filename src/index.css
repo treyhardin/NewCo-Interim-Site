@@ -1,16 +1,19 @@
 @font-face {
+  font-display: swap;
   font-family: 'MaisonNeue';
   src: url('/MaisonNeue-Medium.otf');
   font-weight: 600;
 }
 
 @font-face {
+  font-display: swap;
   font-family: 'MaisonNeue';
   src: url('/MaisonNeue-Book.otf');
   font-weight: 400;
 }
 
 @font-face {
+  font-display: swap;
   font-family: 'MaisonNeue';
   src: url('/MaisonNeue-Light.ttf');
   font-weight: 300;

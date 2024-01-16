@@ -50,8 +50,8 @@ export default function Clients() {
                 <For each={data()}>{(client, i) =>
                     <Show when={i() <= data().length / 3}>
                     <div class={styles.clientCard} key={i()}>
-                        <img width="33vw" height="30vh" class={styles.clientImage} src={urlFor(client.image).width(1200)} />
-                        <img class={styles.clientLogo} src={urlFor(client.logo).width(1000)} />
+                        <img width="33vw" height="30vh" class={styles.clientImage} src={urlFor(client.image).width(800)} />
+                        <img class={styles.clientLogo} src={urlFor(client.logo).width(500)} />
                     </div>
                     </Show>
                 }</For>
@@ -61,8 +61,8 @@ export default function Clients() {
                 <For each={data()}>{(client, i) =>
                     <Show when={i() > data().length / 3 && i() <= data().length / 3 * 2}>
                         <div class={styles.clientCard} key={i()}>
-                            <img width="500" height="300" class={styles.clientImage} src={urlFor(client.image).width(1200)} />
-                            <img width="500" height="500" class={styles.clientLogo} src={urlFor(client.logo).width(1000)} />
+                            <img width="500" height="300" class={styles.clientImage} src={urlFor(client.image).width(800)} loading="eager" alt={`Lifestyle image for ${client.name}`} />
+                            <img width="500" height="500" class={styles.clientLogo} src={urlFor(client.logo).width(500)} loading="eager" alt={`Logo for ${client.name}`} />
                         </div>
                     </Show>
                 }</For>
@@ -72,8 +72,8 @@ export default function Clients() {
                 <For each={data()}>{(client, i) =>
                     <Show when={i() > data().length / 3 * 2}>
                         <div class={styles.clientCard} key={i()}>
-                            <img width="500" height="300" class={styles.clientImage} src={urlFor(client.image).width(1200)} />
-                            <img width="500" height="500" class={styles.clientLogo} src={urlFor(client.logo).width(1000)} />
+                            <img width="500" height="300" class={styles.clientImage} src={urlFor(client.image).width(1200)} loading="eager" alt={`Lifestyle image for ${client.name}`} />
+                            <img width="500" height="500" class={styles.clientLogo} src={urlFor(client.logo).width(1000)} loading="eager" alt={`Logo for ${client.name}`} />
                         </div>
                     </Show>
                 }</For>
