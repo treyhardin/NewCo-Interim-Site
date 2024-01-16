@@ -17,7 +17,7 @@ export default function Agencies() {
           <div class={styles.agencyCards}>
             <For each={data()[0].agencies}>{(agency, i) =>
               <div class={styles.agencyCard} key={i} data-animated="false" data-animation-delay={i() * 100} ref={el => observer.observe(el)}>
-                <img class={styles.agencyLogo} src={urlFor(agency.logo)} />
+                <img class={styles.agencyLogo} src={urlFor(agency.logo)} alt={`Agency logo for ${agency.name}`} />
                 <p class={`${styles.agencyDescription} caption`}>{agency.description}</p>
                 <Show when={agency.linkText && agency.linkURL}>
                   <TextLink 
