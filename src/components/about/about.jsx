@@ -39,6 +39,7 @@ export default function About() {
             autoplay
             loop
             muted
+            playsinline
             class={styles.video}
             onloadedmetadata="this.muted = true"
           />
