@@ -9,7 +9,7 @@
 
 .sectionTitle {
   /* max-width: 90ch; */
-  width: 80%;
+  width: 70%;
   opacity: 1;
   translate: 0 0;
   transition: opacity var(--anim-lg), translate var(--anim-lg);

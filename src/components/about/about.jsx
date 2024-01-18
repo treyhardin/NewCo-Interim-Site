@@ -24,7 +24,7 @@ export default function About() {
           <div class={styles.stats}>
             <For each={data()[0].stats}>{(stat, i) => 
               <div class={styles.stat}>
-                <h3 class="h4" ref={el => blocksToText(stat.content, el)}></h3>
+                <h3 class="h5" ref={el => blocksToText(stat.content, el)}></h3>
               </div>
             }</For>
           </div>
