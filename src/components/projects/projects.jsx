@@ -60,8 +60,17 @@ export default function Projects() {
             <Show when={activeFilter() == project.category.current || activeFilter() == null}>
               <div class={styles.projectCard}>
                 <Switch>
-                  <Match when={project.videoURL}>
-                    <video 
+                  <Match when={project.videoID}>
+                    <div style="position:relative;padding-top:56.25%;">
+                      <iframe 
+                        src={`https://iframe.mediadelivery.net/embed/196075/${project.videoID}?autoplay=true&loop=true&muted=true&preload=true&responsive=true`}
+                        loading="lazy" 
+                        style="border:0;position:absolute;top:0;height:100%;width:100%;" 
+                        allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" 
+                        allowfullscreen="true"
+                      ></iframe>
+                    </div>
+                    {/* <video 
                       src={project.videoURL}
                       class={styles.projectVideo}
                       poster={project.image ? urlFor(project.image).width(800).url() : ''}
@@ -70,11 +79,11 @@ export default function Projects() {
                       muted
                       playsinline
                       onloadedmetadata="this.muted = true"
-                    />
+                    /> */}
                   </Match>
                   <Match when={!project.videoURL && project.image}>
                     <img
-                      src={urlFor(project.image).width(400).height(200).url()}
+                      src={urlFor(project.image).width(620).url()}
                       class={styles.projectImage}
                       width="30vw"
                       height="20vh"
