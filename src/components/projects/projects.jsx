@@ -84,7 +84,8 @@ export default function Projects() {
                       loop
                       muted
                       playsinline
-                      loading="lazy"
+                      preload="none"
+                      // loading="lazy"
                       onloadedmetadata="this.muted = true"
                     />
                   </Match>
