@@ -57,11 +57,11 @@ export default function Projects() {
         <div class={styles.projectsGrid}>
 
           <For each={data()[0].projects}>{(project, i) =>
-            <Show when={activeFilter() == project.category.current || activeFilter() == null}>
+            <Show when={(project.category && activeFilter() == project.category.current) || activeFilter() == null}>
               <div class={styles.projectCard}>
                 <Switch>
-                  <Match when={project.videoID}>
-                    <div style="position:relative;padding-top:56.25%;">
+                  <Match when={project.showVideo && project.videoID}>
+                    <div style="position:relative;padding-top:54.196%;" class={styles.projectVideo}>
                       <iframe 
                         src={`https://iframe.mediadelivery.net/embed/196075/${project.videoID}?autoplay=true&loop=true&muted=true&preload=true&responsive=true`}
                         loading="lazy" 
@@ -81,7 +81,7 @@ export default function Projects() {
                       onloadedmetadata="this.muted = true"
                     /> */}
                   </Match>
-                  <Match when={!project.videoURL && project.image}>
+                  <Match when={(!project.videoURL || !project.showVideo) && project.image}>
                     <img
                       src={urlFor(project.image).width(1200).url()}
                       class={styles.projectImage}

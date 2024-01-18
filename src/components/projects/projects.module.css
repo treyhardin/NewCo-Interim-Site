@@ -65,7 +65,7 @@
 }
 
 .projectVideo {
-
+  pointer-events: none;
 }
 
 .projectName {
