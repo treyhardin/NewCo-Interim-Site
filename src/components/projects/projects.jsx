@@ -83,7 +83,7 @@ export default function Projects() {
                   </Match>
                   <Match when={!project.videoURL && project.image}>
                     <img
-                      src={urlFor(project.image).width(620).url()}
+                      src={urlFor(project.image).width(1200).url()}
                       class={styles.projectImage}
                       width="30vw"
                       height="20vh"
