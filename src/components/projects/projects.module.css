@@ -1,5 +1,5 @@
 .projects {
-  padding: var(--space-xl) 0;
+  padding: var(--header-height) 0 var(--space-xl);
   /* overflow: hidden; */
   display: flex;
   flex-direction: column;
@@ -10,7 +10,7 @@
 .categories {
   display: flex;
   flex-direction: row;
-  gap: var(--space-sm);
+  gap: var(--space-xs);
   overflow-x: auto;
   padding: var(--space-lg) var(--page-margin);
 }

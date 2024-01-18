@@ -42,6 +42,7 @@ export default function Header() {
                             <button class={styles.navigationLink} data-active={activeNavigation() == "clients" ? true : false} onClick={() => lenis.scrollTo("#clients")}>Clients</button>
                             <button class={styles.navigationLink} data-active={activeNavigation() == "about" ? true : false} onClick={() => lenis.scrollTo("#about")}>About</button>
                             <button class={styles.navigationLink} data-active={activeNavigation() == "services" ? true : false} onClick={() => lenis.scrollTo("#services")}>Services</button>
+                            <button class={styles.navigationLink} data-active={activeNavigation() == "work" ? true : false} onClick={() => lenis.scrollTo("#work")}>Work</button>
                             <button class={styles.navigationLink} data-active={activeNavigation() == "partners" ? true : false} onClick={() => lenis.scrollTo("#partners")}>Partners</button>
                         </div>
                     </div>

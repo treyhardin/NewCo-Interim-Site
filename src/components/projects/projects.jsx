@@ -1,6 +1,7 @@
 import styles from './projects.module.css'
 import { Match, Show, Switch, createEffect, createResource, createSignal } from "solid-js"
 import { getProjectCategories, getProjectsData, urlFor } from "../../utilities/sanity-client"
+import { navigationObserver } from '../../utilities/intersectionObserver'
 
 
 
@@ -11,6 +12,8 @@ export default function Projects() {
   const [ categoryData ] = createResource(getProjectCategories)
 
   const [ activeFilter, setActiveFilter ] = createSignal(null)
+
+  const maxProjectCards = 9
 
   createEffect(() => {
     console.log(data())
@@ -23,7 +26,7 @@ export default function Projects() {
 
   return (
 
-    <section class={styles.projects}>
+    <section class={styles.projects} id="work" ref={el => navigationObserver.observe(el)}>
 
       
       <Show when={data()}>
@@ -57,7 +60,7 @@ export default function Projects() {
         <div class={styles.projectsGrid}>
 
           <For each={data()[0].projects}>{(project, i) =>
-            // <Show when={(project.category && activeFilter() == project.category.current) || activeFilter() == null}>
+            // <Show when={(i() < maxProjectCards) && (activeFilter() == project.category.current || activeFilter() == null)}>
               <div class={styles.projectCard} data-visible={(project.category && activeFilter() == project.category.current) || activeFilter() == null}>
                 <div class={styles.projectMedia}>
                 <Switch>
