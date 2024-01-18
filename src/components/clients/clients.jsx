@@ -34,7 +34,6 @@ export default function Clients() {
     createEffect(() => {
         if (!data.loading && !data.error && scrollerRow.length > 0) {
             initScrollAnimation()
-            console.log('init')
         }
     })
     

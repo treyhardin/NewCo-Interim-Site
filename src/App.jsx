@@ -9,6 +9,7 @@ import Agencies from './components/agencies/agencies'
 import Footer from './components/footer/footer'
 import Contact from './components/contact/contact'
 import About from './components/about/about'
+import Projects from './components/projects/projects'
 
 
 export const lenis = new Lenis()
@@ -30,6 +31,7 @@ function App() {
       <About />
       <Services />
       <Contact />
+      <Projects />
       <Partners />
       <Agencies />
       <Footer />

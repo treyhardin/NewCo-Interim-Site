@@ -74,3 +74,13 @@ export async function getFooterSettings() {
   const footerSettings = await client.fetch('*[_type == "footerSettings"]')
   return footerSettings
 }
+
+export async function getProjectsData() {
+  const projectsData = await client.fetch('*[_type == "project"]{heading, subheading, projects[]{name, image, videoURL, "category": category->slug }}')
+  return projectsData
+}
+
+export async function getProjectCategories() {
+  const projectCategories = await client.fetch('*[_type == "projectCategory"]{name, slug}')
+  return projectCategories
+}
