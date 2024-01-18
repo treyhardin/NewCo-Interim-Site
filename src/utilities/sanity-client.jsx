@@ -76,7 +76,7 @@ export async function getFooterSettings() {
 }
 
 export async function getProjectsData() {
-  const projectsData = await client.fetch('*[_type == "project"]{heading, subheading, projects[]{name, image, videoID, showVideo, "category": category->slug }}')
+  const projectsData = await client.fetch('*[_type == "project"]{heading, subheading, projects[]{name, image, videoID, "videoURL": video.asset->url, showVideo, "category": category->slug }}')
   return projectsData
 }
 

@@ -8,15 +8,23 @@
 }
 
 .sectionTitle {
-  max-width: 90ch;
+  /* max-width: 90ch; */
+  width: 80%;
   opacity: 1;
   translate: 0 0;
   transition: opacity var(--anim-lg), translate var(--anim-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
 }
 
 .sectionTitle[data-animated="false"] {
   opacity: 0;
   translate: 60px 0;
+}
+
+.subheading {
+  composes: h5 from '../../index.css';
 }
 
 .sectionTitle img {

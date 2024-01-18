@@ -44,6 +44,7 @@ export default function Partners() {
       <Show when={data()}>
         <div class={styles.sectionTitle} data-animated="false" ref={el => observer.observe(el)}>
           <h1 ref={el => addInlineLogo(el, data()[0].heading)}></h1>
+          <p class={styles.subheading}>{data()[0].subheading}</p>
         </div>
         <div class={styles.partnerLogos} ref={logoContainer}>
           <For each={data()[0].logos}>{(logo, i) => 

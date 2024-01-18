@@ -57,11 +57,12 @@ export default function Projects() {
         <div class={styles.projectsGrid}>
 
           <For each={data()[0].projects}>{(project, i) =>
-            <Show when={(project.category && activeFilter() == project.category.current) || activeFilter() == null}>
-              <div class={styles.projectCard}>
+            // <Show when={(project.category && activeFilter() == project.category.current) || activeFilter() == null}>
+              <div class={styles.projectCard} data-visible={(project.category && activeFilter() == project.category.current) || activeFilter() == null}>
+                {/* <div class={styles.projectMedia}> */}
                 <Switch>
-                  <Match when={project.showVideo && project.videoID}>
-                    <div style="position:relative;padding-top:54.196%;" class={styles.projectVideo}>
+                  <Match when={project.showVideo && project.videoURL}>
+                    {/* <div style="position:relative;padding-top:54.196%;" class={styles.projectVideo}>
                       <iframe 
                         src={`https://iframe.mediadelivery.net/embed/196075/${project.videoID}?autoplay=true&loop=true&muted=true&preload=true&responsive=true`}
                         loading="lazy" 
@@ -69,17 +70,19 @@ export default function Projects() {
                         allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" 
                         allowfullscreen="true"
                       ></iframe>
-                    </div>
-                    {/* <video 
+                    </div> */}
+                    <video 
                       src={project.videoURL}
                       class={styles.projectVideo}
+                      // oncanplaythrough={(e) => console.log(e.target)}
+                      oncanplaythrough={(e) => e.target.dataset.canPlay = true}
                       poster={project.image ? urlFor(project.image).width(800).url() : ''}
                       autoplay
                       loop
                       muted
                       playsinline
                       onloadedmetadata="this.muted = true"
-                    /> */}
+                    />
                   </Match>
                   <Match when={(!project.videoURL || !project.showVideo) && project.image}>
                     <img
@@ -90,9 +93,10 @@ export default function Projects() {
                     />
                   </Match>
                 </Switch>
+                {/* </div> */}
                 <p class={styles.projectName}>{project.name}</p>
               </div>
-            </Show>
+            // </Show>
           }</For>
 
         </div>

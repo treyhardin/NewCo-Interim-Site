@@ -54,6 +54,23 @@
   border-top: 1px solid var(--color-neutral);
 }
 
+.projectCard {
+  display: none;
+  flex-direction: column;
+  gap: var(--space-2xs);
+}
+
+.projectCard[data-visible="true"] {
+  display: flex;
+}
+
+.projectMedia {
+  position: relative;
+  /* opacity: 0.1; */
+}
+
+
+
 .projectImage,
 .projectVideo {
   width: 100%;
@@ -66,6 +83,18 @@
 
 .projectVideo {
   pointer-events: none;
+  position: relative;
+}
+
+.projectVideo::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: var(--color-subdued);
+  z-index: 99999;
 }
 
 .projectName {
