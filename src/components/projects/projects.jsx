@@ -59,7 +59,7 @@ export default function Projects() {
           <For each={data()[0].projects}>{(project, i) =>
             // <Show when={(project.category && activeFilter() == project.category.current) || activeFilter() == null}>
               <div class={styles.projectCard} data-visible={(project.category && activeFilter() == project.category.current) || activeFilter() == null}>
-                {/* <div class={styles.projectMedia}> */}
+                <div class={styles.projectMedia}>
                 <Switch>
                   <Match when={project.showVideo && project.videoURL}>
                     {/* <div style="position:relative;padding-top:54.196%;" class={styles.projectVideo}>
@@ -81,6 +81,7 @@ export default function Projects() {
                       loop
                       muted
                       playsinline
+                      loading="lazy"
                       onloadedmetadata="this.muted = true"
                     />
                   </Match>
@@ -93,7 +94,7 @@ export default function Projects() {
                     />
                   </Match>
                 </Switch>
-                {/* </div> */}
+                </div>
                 <p class={styles.projectName}>{project.name}</p>
               </div>
             // </Show>

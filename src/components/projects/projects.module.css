@@ -66,6 +66,9 @@
 
 .projectMedia {
   position: relative;
+  background-color: var(--color-subdued);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
   /* opacity: 0.1; */
 }
 
@@ -84,17 +87,14 @@
 .projectVideo {
   pointer-events: none;
   position: relative;
+  opacity: 0;
+  filter: blur(10px);
+  transition: opacity var(--anim-lg), filter var(--anim-lg);
 }
 
-.projectVideo::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background-color: var(--color-subdued);
-  z-index: 99999;
+.projectVideo[data-can-play="true"] {
+  opacity: 1;
+  filter: blur(0px);
 }
 
 .projectName {
