@@ -9,12 +9,12 @@ export default function Projects() {
 
 
   const [ data ] = createResource(getProjectsData)
-  const [ activeFilter, setActiveFilter ] = createSignal(null)
+  const [ activeFilter, setActiveFilter ] = createSignal("featured")
 
   const maxProjectCards = 9
 
   createEffect(() => {
-    // console.log(data())
+    console.log(data())
     // console.log(categoryData())
   })
 
@@ -33,7 +33,7 @@ export default function Projects() {
         <div class={styles.categories}>
           <For each={data()[0].categories}>{(category, i) =>
             <button 
-              data-active={activeFilter() == category.slug ? true : false}
+              data-active={activeFilter() == category.slug.current ? true : false}
               class={styles.tab}
               onClick={() => {
                 if (activeFilter() == category.slug.current) {
@@ -53,7 +53,7 @@ export default function Projects() {
 
           <For each={data()[0].projects}>{(project, i) =>
             // <Show when={(i() < maxProjectCards) && (activeFilter() == project.category.current || activeFilter() == null)}>
-              <div class={styles.projectCard} data-visible={(project.category && activeFilter() == project.category.current) || activeFilter() == null}>
+              <div class={styles.projectCard} data-visible={(project.categories && project.categories.includes(activeFilter()))}>
                 <div class={styles.projectMedia}>
                 <Switch>
                   <Match when={project.showVideo && project.videoURL}>
