@@ -29,6 +29,8 @@ export default function Partners() {
         if (i == 0) {
           const image = document.createElement('img')
           image.src = urlFor(data()[0].inlineLogo).width(800).url()
+          image.width = "110"
+          image.height = "110"
           image.alt = "Shopify logo"
           image.dataset.inline = true
           el.appendChild(image)
