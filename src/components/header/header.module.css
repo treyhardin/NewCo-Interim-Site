@@ -43,7 +43,7 @@
 }
 
 .logo {
-    font-size: clamp(24px, 2vw, 60px);
+    font-size: clamp(26px, 2.5vw, 36px);
     font-weight: 600;
     letter-spacing: -0.01em;
     color: inherit;
@@ -70,7 +70,8 @@
 
 .navigationLink {
     color: inherit;
-    padding: var(--space-2xs) var(--space-sm);
+    height: var(--button-height);
+    /* padding: var(--space-2xs) var(--space-sm); */
     background-color: transparent;
     border: none;
     border-radius: 0;
