@@ -36,9 +36,9 @@ export default function Projects() {
               data-active={activeFilter() == category.slug.current ? true : false}
               class={styles.tab}
               onClick={() => {
-                if (activeFilter() == category.slug.current) {
-                  return setActiveFilter(null)
-                }
+                // if (activeFilter() == category.slug.current) {
+                //   return setActiveFilter(null)
+                // }
                 return setActiveFilter(category.slug.current)
                 // console.log(activeFilter())
               }}
@@ -80,6 +80,7 @@ export default function Projects() {
                       class={styles.projectImage}
                       width="30vw"
                       height="20vh"
+                      loading="lazy"
                       alt={`Case study image for our work with ${project.name}`}
                     />
                   </Match>

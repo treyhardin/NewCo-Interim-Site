@@ -35,7 +35,7 @@ export default function About() {
         }}>
           <video 
             src={data()[0].videoURL}
-            poster={urlFor(data()[0].image).width(800).url()}
+            poster={urlFor(data()[0].image).format("webp").width(800).url()}
             autoplay
             loop
             muted

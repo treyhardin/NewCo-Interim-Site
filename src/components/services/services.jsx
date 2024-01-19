@@ -40,7 +40,12 @@ export default function Services() {
 
             <div class={styles.sectionMedia}>
               <For each={data()[0].services}>{(service, i) =>
-                <img class={styles.serviceImage} data-active={i() == activeServiceIndex()} src={urlFor(service.image).format("webp").width(1280).url()} alt={`Supporting image for ${service.title} service.`} />
+                <img 
+                  class={styles.serviceImage} 
+                  data-active={i() == activeServiceIndex()} src={urlFor(service.image).format("webp").width(1280).url()} 
+                  alt={`Supporting image for ${service.title} service.`} 
+                  loading="lazy"
+                />
               }</For>
             </div>
 
@@ -51,7 +56,12 @@ export default function Services() {
             
               <div class={styles.serviceCategory} key={i} data-active={i() == activeServiceIndex()} data-index={i()} ref={el => activeServiceObserver.observe(el)}>
                 
-                <img class={styles.serviceImageInline} src={urlFor(service.image).format("webp").width(800).url()} alt={`Supporting image for ${service.title} service.`}/>
+                <img 
+                  class={styles.serviceImageInline} 
+                  src={urlFor(service.image).format("webp").width(800).url()} 
+                  alt={`Supporting image for ${service.title} service.`}
+                  loading="lazy"
+                />
 
                 <div class={styles.serviceText}>
 
