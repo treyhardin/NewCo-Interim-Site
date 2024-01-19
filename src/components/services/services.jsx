@@ -32,9 +32,9 @@ export default function Services() {
           <div class={styles.servicesInfo} data-animated="false" ref={el => observer.observe(el)}>
 
             <div class={styles.sectionTitle}>
-              <h1>{data()[0].heading}</h1>
+              <h2 class="h1">{data()[0].heading}</h2>
               <Show when={data()[0].subheading}>
-                <h5>{data()[0].subheading}</h5>
+                <h2 class="h5">{data()[0].subheading}</h2>
               </Show>
             </div>
 

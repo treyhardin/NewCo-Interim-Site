@@ -74,10 +74,11 @@ export default function Projects() {
                   </Match>
                   <Match when={(!project.videoURL || !project.showVideo) && project.image}>
                     <img
-                      src={urlFor(project.image).width(1200).url()}
+                      src={urlFor(project.image).width(1000).url()}
                       class={styles.projectImage}
                       width="30vw"
                       height="20vh"
+                      alt={`Case study image for our work with ${project.name}`}
                     />
                   </Match>
                 </Switch>
