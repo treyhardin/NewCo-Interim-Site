@@ -97,7 +97,7 @@
   --form-toggle-size: 16px;
 
   /* Fonts */
-  --font-family: 'MaisonNeue';
+  --font-family: 'MaisonNeue', Arial, Helvetica, sans-serif;
 
   /* Animation */
   --anim-easing: cubic-bezier(0.22, 1, 0.36, 1);
@@ -159,7 +159,7 @@ input[type="submit"] {
   gap: var(--space-xs);
   text-align: center;
   border: none;
-  transition: border-color var(--anim-sm), background var(--anim-sm);
+  transition: border-color var(--anim-sm), background-color var(--anim-sm);
 }
 
 button:hover,
@@ -188,6 +188,7 @@ h6,
   margin: 0 0 0;
   letter-spacing: -0.05em;
   line-height: 1.1;
+  font-family: var(--font-family);
   font-weight: 500;
   
   /*   We use max here to ensure that font size never goes smaller than the size in the mobile designs */
@@ -202,6 +203,7 @@ input,
 textarea {
   font-size: max( var(--fluid-font-size), calc(var(--font-size-mobile) * 1px) );
   /* margin: 0 0 0.4em; */
+  font-family: var(--font-family);
   font-weight: normal;
 }
 
