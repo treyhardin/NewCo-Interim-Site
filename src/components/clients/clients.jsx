@@ -49,8 +49,8 @@ export default function Clients() {
                 <For each={data()}>{(client, i) =>
                     <Show when={i() <= data().length / 3}>
                     <div class={styles.clientCard} key={i()}>
-                        <img width="33vw" height="30vh" class={styles.clientImage} src={urlFor(client.image).width(800)} loading="eager" alt={`Lifestyle image for ${client.name}`} />
-                        <img width="350" height="300" class={styles.clientLogo} src={urlFor(client.logo).width(500)} loading="eager" alt={`Logo for ${client.name}`}  />
+                        <img width="366" height="220" class={styles.clientImage} src={urlFor(client.image).format("webp").width(800)} loading="eager" alt={`Lifestyle image for ${client.name}`} />
+                        <img width="350" height="350" class={styles.clientLogo} src={urlFor(client.logo).format("webp").width(500)} loading="eager" alt={`Logo for ${client.name}`}  />
                     </div>
                     </Show>
                 }</For>
@@ -60,8 +60,8 @@ export default function Clients() {
                 <For each={data()}>{(client, i) =>
                     <Show when={i() > data().length / 3 && i() <= data().length / 3 * 2}>
                         <div class={styles.clientCard} key={i()}>
-                            <img width="33vw" height="30vh" class={styles.clientImage} src={urlFor(client.image).width(800)} loading="eager" alt={`Lifestyle image for ${client.name}`} />
-                            <img width="350" height="300" class={styles.clientLogo} src={urlFor(client.logo).width(500)} loading="eager" alt={`Logo for ${client.name}`} />
+                            <img width="33vw" height="30vh" class={styles.clientImage} src={urlFor(client.image).format("webp").width(800)} loading="eager" alt={`Lifestyle image for ${client.name}`} />
+                            <img width="350" height="300" class={styles.clientLogo} src={urlFor(client.logo).format("webp").width(500)} loading="eager" alt={`Logo for ${client.name}`} />
                         </div>
                     </Show>
                 }</For>
@@ -71,8 +71,8 @@ export default function Clients() {
                 <For each={data()}>{(client, i) =>
                     <Show when={i() > data().length / 3 * 2}>
                         <div class={styles.clientCard} key={i()}>
-                            <img width="33vw" height="30vh" class={styles.clientImage} src={urlFor(client.image).width(800)} loading="eager" alt={`Lifestyle image for ${client.name}`} />
-                            <img width="350" height="300" class={styles.clientLogo} src={urlFor(client.logo).width(500)} loading="eager" alt={`Logo for ${client.name}`} />
+                            <img width="33vw" height="30vh" class={styles.clientImage} src={urlFor(client.image).format("webp").width(800)} loading="eager" alt={`Lifestyle image for ${client.name}`} />
+                            <img width="350" height="300" class={styles.clientLogo} src={urlFor(client.logo).format("webp").width(500)} loading="eager" alt={`Logo for ${client.name}`} />
                         </div>
                     </Show>
                 }</For>

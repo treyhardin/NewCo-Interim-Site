@@ -28,9 +28,9 @@ export default function Partners() {
   
         if (i == 0) {
           const image = document.createElement('img')
-          image.src = urlFor(data()[0].inlineLogo).width(800).url()
-          image.width = "110"
-          image.height = "110"
+          image.src = urlFor(data()[0].inlineLogo).format("webp").width(800).url()
+          // image.width = "110"
+          // image.height = "110"
           image.alt = "Shopify logo"
           image.dataset.inline = true
           el.appendChild(image)
@@ -52,7 +52,7 @@ export default function Partners() {
           <For each={data()[0].logos}>{(logo, i) => 
             <Show when={i() < maxLogos}>
               <div class={styles.partnerLogo} data-animated="false" data-animation-delay={i() * 20} ref={el => observer.observe(el)}>
-                <img src={urlFor(logo.partnerLogo).width(600)} alt={`Partner logo for ${logo.name}`} />
+                <img src={urlFor(logo.partnerLogo).format("webp").width(600)} alt={`Partner logo for ${logo.name}`} />
               </div>
             </Show>
           }

@@ -62,7 +62,7 @@ export default function Projects() {
                       class={styles.projectVideo}
                       // oncanplaythrough={(e) => console.log(e.target)}
                       oncanplaythrough={(e) => e.target.dataset.canPlay = true}
-                      poster={project.image ? urlFor(project.image).width(800).url() : ''}
+                      poster={project.image ? urlFor(project.image).format("webp").width(800).url() : ''}
                       autoplay
                       loop
                       muted
@@ -74,9 +74,9 @@ export default function Projects() {
                   </Match>
                   <Match when={(!project.videoURL || !project.showVideo) && project.image}>
                     <img
-                      srcset={`${urlFor(project.image).width(300).url()} 300w, ${urlFor(project.image).width(600).url()} 600w, ${urlFor(project.image).width(960).url()} 960w`}
+                      srcset={`${urlFor(project.image).format("webp").width(300).url()} 300w, ${urlFor(project.image).format("webp").width(600).url()} 600w, ${urlFor(project.image).format("webp").width(960).url()} 960w`}
                       sizes="(max-width: 600px) 300px, (max-width: 1800px) 600px, 960px"
-                      src={urlFor(project.image).width(1000).url()}
+                      src={urlFor(project.image).format("webp").width(1000).url()}
                       class={styles.projectImage}
                       width="30vw"
                       height="20vh"
