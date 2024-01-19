@@ -35,10 +35,6 @@ export default function Header() {
                         <a href="#" class={styles.logo}>Domaine<sup>&#8482;</sup></a>
 
                         <div class={styles.navigationLinks}>
-                            {/* <For each={data()[0].links}>{(link, i) =>
-                                <a href={link.linkURL} class={styles.navigationLink}>{link.linkText}</a>
-                            }
-                            </For> */}
                             <button class={styles.navigationLink} data-active={activeNavigation() == "clients" ? true : false} onClick={() => lenis.scrollTo("#clients")}>Clients</button>
                             <button class={styles.navigationLink} data-active={activeNavigation() == "about" ? true : false} onClick={() => lenis.scrollTo("#about")}>About</button>
                             <button class={styles.navigationLink} data-active={activeNavigation() == "services" ? true : false} onClick={() => lenis.scrollTo("#services")}>Services</button>
@@ -47,22 +43,7 @@ export default function Header() {
                         </div>
                     </div>
                     <div class={styles.utilityMenu}>
-                        {/* <Show when={data()[0].instagramURL}>
-                            <a href={data()[0].instagramURL} class={styles.socialLink} target='_blank'>
-                                {instagramIcon}
-                            </a>
-                        </Show>
-                        <Show when={data()[0].twitterURL}>
-                            <a href={data()[0].twitterURL} class={styles.socialLink} target='_blank'>
-                                {twitterIcon}
-                            </a>
-                        </Show>
-                        <Show when={data()[0].linkedInURL}>
-                            <a href={data()[0].linkedInURL} class={styles.socialLink} target='_blank'>
-                                {linkedInIcon}
-                            </a>
-                        </Show> */}
-                        <Show when={data()[0].showButton && data()[0].buttonText && data()[0].buttonURL}>
+                        <Show when={data()[0].buttonText}>
                             <button class={styles.headerButton} onClick={() => lenis.scrollTo("#contact")}>
                                 {data()[0].buttonText}
                                 <div class={styles.buttonIcon}>{emailIcon()}</div>

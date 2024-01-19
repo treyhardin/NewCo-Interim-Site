@@ -1,9 +1,11 @@
-import { createEffect, createSignal } from 'solid-js'
+import { Show, createEffect, createResource, createSignal } from 'solid-js'
 import styles from './contact.module.css'
 import { navigationObserver, observer } from '../../utilities/intersectionObserver'
+import { getContactContent } from '../../utilities/sanity-client'
 
 export default function Contact() {
 
+  const [ data ] = createResource(getContactContent)
   const [ currentForm, setCurrentForm ] = createSignal(null)
 
   let projectInquiryForm, newsletterForm
@@ -57,13 +59,14 @@ export default function Contact() {
 
 
   return (
+    <Show when={data()}>
     <section class={styles.contact} id="contact" data-animated="false" ref={el => {
       observer.observe(el)
       navigationObserver.observe(el)
     }}>
       <div class={styles.sectionTitle}>
-        <h2>Get in Touch</h2>
-        <p>Lorem ipsum dolor sit amet.</p>
+        <h2>{data()[0].heading}</h2>
+        <p>{data()[0].subheading}</p>
 
         <div class={styles.formToggle}>
           <fieldset class={styles.toggleFields}>
@@ -100,5 +103,6 @@ export default function Contact() {
       <div class={styles.hubspotForm} id="newsletterForm" ref={el => loadNewsletterForm(el)} data-hidden={currentForm() == "newsletter" ? false : true}></div>
 
     </section>
+    </Show>
   )
 }

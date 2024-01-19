@@ -9,20 +9,14 @@ export default function Projects() {
 
 
   const [ data ] = createResource(getProjectsData)
-  const [ categoryData ] = createResource(getProjectCategories)
-
   const [ activeFilter, setActiveFilter ] = createSignal(null)
 
   const maxProjectCards = 9
 
   createEffect(() => {
-    console.log(data())
-    console.log(categoryData())
+    // console.log(data())
+    // console.log(categoryData())
   })
-
-  const handleFilter = (e) => {
-    console.log(e)
-  }
 
   return (
 
@@ -36,25 +30,23 @@ export default function Projects() {
           <p class={styles.subheading}>{data()[0].subheading}</p>
         </div>
 
-        <Show when={categoryData()}>
-          <div class={styles.categories}>
-            <For each={categoryData()}>{(category, i) =>
-              <button 
-                data-active={activeFilter() == category.slug.current ? true : false}
-                class={styles.tab}
-                onClick={() => {
-                  if (activeFilter() == category.slug.current) {
-                    return setActiveFilter(null)
-                  }
-                  return setActiveFilter(category.slug.current)
-                  // console.log(activeFilter())
-                }}
-              >
-                {category.name}
-              </button>
-            }</For>
-          </div>
-        </Show>
+        <div class={styles.categories}>
+          <For each={data()[0].categories}>{(category, i) =>
+            <button 
+              data-active={activeFilter() == category.slug ? true : false}
+              class={styles.tab}
+              onClick={() => {
+                if (activeFilter() == category.slug.current) {
+                  return setActiveFilter(null)
+                }
+                return setActiveFilter(category.slug.current)
+                // console.log(activeFilter())
+              }}
+            >
+              {category.name}
+            </button>
+          }</For>
+        </div>
 
 
         <div class={styles.projectsGrid}>
@@ -65,15 +57,6 @@ export default function Projects() {
                 <div class={styles.projectMedia}>
                 <Switch>
                   <Match when={project.showVideo && project.videoURL}>
-                    {/* <div style="position:relative;padding-top:54.196%;" class={styles.projectVideo}>
-                      <iframe 
-                        src={`https://iframe.mediadelivery.net/embed/196075/${project.videoID}?autoplay=true&loop=true&muted=true&preload=true&responsive=true`}
-                        loading="lazy" 
-                        style="border:0;position:absolute;top:0;height:100%;width:100%;" 
-                        allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" 
-                        allowfullscreen="true"
-                      ></iframe>
-                    </div> */}
                     <video 
                       src={project.videoURL}
                       class={styles.projectVideo}

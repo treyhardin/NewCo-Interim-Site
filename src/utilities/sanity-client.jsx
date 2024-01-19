@@ -55,6 +55,11 @@ export async function getAboutContent() {
   return clients
 }
 
+export async function getContactContent() {
+  const clients = await client.fetch('*[_type == "contactSettings"]')
+  return clients
+}
+
 export async function getServicesContent() {
   const servicesSettings = await client.fetch('*[_type == "services"]')
   return servicesSettings
@@ -76,7 +81,7 @@ export async function getFooterSettings() {
 }
 
 export async function getProjectsData() {
-  const projectsData = await client.fetch('*[_type == "project"]{heading, subheading, projects[]{name, image, videoID, "videoURL": video.asset->url, showVideo, "category": category->slug }}')
+  const projectsData = await client.fetch('*[_type == "project"]{heading, subheading, "categories": categories[]->{name, slug}, projects[]{name, image, videoID, "videoURL": video.asset->url, showVideo, "category": category->slug }}')
   return projectsData
 }
 
