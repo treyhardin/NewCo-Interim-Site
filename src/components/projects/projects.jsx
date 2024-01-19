@@ -14,7 +14,7 @@ export default function Projects() {
   const maxProjectCards = 9
 
   createEffect(() => {
-    console.log(data())
+    // console.log(data())
     // console.log(categoryData())
   })
 
@@ -74,6 +74,8 @@ export default function Projects() {
                   </Match>
                   <Match when={(!project.videoURL || !project.showVideo) && project.image}>
                     <img
+                      srcset={`${urlFor(project.image).width(300).url()} 300w, ${urlFor(project.image).width(600).url()} 600w, ${urlFor(project.image).width(960).url()} 960w`}
+                      sizes="(max-width: 600px) 300px, (max-width: 1800px) 600px, 960px"
                       src={urlFor(project.image).width(1000).url()}
                       class={styles.projectImage}
                       width="30vw"
