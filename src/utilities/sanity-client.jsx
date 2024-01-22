@@ -41,7 +41,7 @@ export async function getNavigationSettings() {
 }
 
 export async function getHeroSettings() {
-  const heroSettings = await client.fetch('*[_type == "heroSettings"]{ heading, subheading, showVideo, "videoURL": video.asset -> url, "imageURL": image.asset -> url}')
+  const heroSettings = await client.fetch('*[_type == "heroSettings"]{ heading, subheading, showVideo, "videoURL": video.asset -> url, "imageURL": image.asset -> url, showBadge, badgeText}')
   return heroSettings
 }
 

@@ -48,7 +48,7 @@
     letter-spacing: -0.01em;
     color: inherit;
     padding-right: var(--space-lg);
-    border-right: 1px solid var(--color-reverse);
+    border-right: 1px solid var(--color-border);
 }
 
 .logo::before {
@@ -60,18 +60,16 @@
 }
 
 .navigationLinks {
-    border: 1px solid var(--color-reverse);
+    border: 1px solid var(--color-border);
     border-radius: var(--radius-rounded);
     display: flex;
     flex-direction: row;
     overflow: hidden;
-    /* background: var(--gradient-ink); */
 }
 
 .navigationLink {
     color: inherit;
     height: var(--button-height);
-    /* padding: var(--space-2xs) var(--space-sm); */
     background-color: transparent;
     border: none;
     border-radius: 0;
@@ -104,13 +102,15 @@
 }
 
 .headerButton {
-    /* background: var(--gradient-ink); */
-    background-color: var(--color-reverse);
-    color: var(--color-ink);
+    background: var(--gradient-ink);
+    color: var(--color-reverse);
+    /* background-color: var(--color-reverse); */
+    /* color: var(--color-ink); */
     opacity: 1;
-    padding: var(--space-2xs) var(--space-2xs) var(--space-2xs) var(--space-sm);
+    padding: var(--space-2xs) var(--space-2xs) var(--space-2xs) var(--space-md);
     /* padding-inline: var(--space-md) var(--space-xs); */
     gap: var(--space-lg);
+    height: var(--button-height);
 }
 
 .headerButton:hover {
@@ -118,17 +118,15 @@
 }
 
 .buttonIcon {
-    width: 30px;
-    height: 30px;
-    /* background-color: var(--color-reverse); */
-    color: var(--color-reverse);
+    --button-size: 28px;
+    width: var(--button-size);
+    height: var(--button-size);
+    color: var(--color-ink);
     border-radius: var(--radius-rounded);
     display: flex;
     justify-content: center;
     align-items: center;
-    background: var(--gradient-ink);
-    /* place-items: center;
-    place-content: center; */
+    background: var(--color-reverse);
 }
 
 .buttonIcon svg {

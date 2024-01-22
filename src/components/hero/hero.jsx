@@ -1,7 +1,7 @@
 import { Show, createEffect, createResource } from 'solid-js'
 import styles from './hero.module.css'
 import { getHeroSettings, urlFor, blocksToText } from '../../utilities/sanity-client'
-import { longArrowIcon } from '../../utilities/icons'
+import { longArrowIcon, star } from '../../utilities/icons'
 
 export default function Hero() {
 
@@ -15,7 +15,13 @@ export default function Hero() {
                         el.dataset.animated = true
                     }, 1);
                 }}>
-                    <h1 ref={el => blocksToText(data()[0].heading, el) }></h1>
+                    <h1 class={styles.heroText} ref={el => blocksToText(data()[0].heading, el) }></h1>
+                    <Show when={data()[0].showBadge && data()[0].badgeText}>
+                    <div class={styles.badge}>
+                        {star()}
+                        <p>{data()[0].badgeText}</p>
+                    </div>
+                    </Show>
                 </div>
                 <Show when={data()[0].showVideo && data()[0].videoURL}>
                     <div class={styles.heroBackground}>
