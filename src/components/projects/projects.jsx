@@ -52,7 +52,7 @@ export default function Projects() {
         <div class={styles.projectsGrid}>
 
           <For each={data()[0].projects}>{(project, i) =>
-            // <Show when={(i() < maxProjectCards) && (activeFilter() == project.category.current || activeFilter() == null)}>
+            <Show when={ project.categories && project.categories.includes(activeFilter()) }>
               <div class={styles.projectCard} data-visible={(project.categories && project.categories.includes(activeFilter()))}>
                 <div class={styles.projectMedia}>
                 <Switch>
@@ -88,7 +88,7 @@ export default function Projects() {
                 </div>
                 <p class={styles.projectName}>{project.name}</p>
               </div>
-            // </Show>
+            </Show>
           }</For>
 
         </div>

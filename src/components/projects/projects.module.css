@@ -55,14 +55,14 @@
 }
 
 .projectCard {
-  display: none;
+  display: flex;
   flex-direction: column;
   gap: var(--space-2xs);
 }
 
-.projectCard[data-visible="true"] {
+/* .projectCard[data-visible="true"] {
   display: flex;
-}
+} */
 
 .projectMedia {
   position: relative;

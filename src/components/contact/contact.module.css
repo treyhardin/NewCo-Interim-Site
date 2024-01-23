@@ -39,6 +39,7 @@
 }
 
 .radio {
+  /* composes: caption from '../../index.css'; */
   padding: var(--space-xs) var(--space-md);
   display: flex;
   flex-direction: row;
