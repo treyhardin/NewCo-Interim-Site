@@ -53,7 +53,7 @@ export default function Projects() {
 
           <For each={data()[0].projects}>{(project, i) =>
             <Show when={ project.categories && project.categories.includes(activeFilter()) }>
-              <div class={styles.projectCard} data-visible={(project.categories && project.categories.includes(activeFilter()))}>
+              <div class={styles.projectCard}>
                 <div class={styles.projectMedia}>
                 <Switch>
                   <Match when={project.showVideo && project.videoURL}>
