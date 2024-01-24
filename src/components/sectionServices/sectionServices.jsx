@@ -1,11 +1,11 @@
-import { For, Show, createEffect, createResource, createSignal } from 'solid-js'
-import styles from './services.module.css'
-import { getServicesContent, urlFor } from '../../utilities/sanity-client'
+import styles from './sectionServices.module.css'
+
+import { For, Show, createSignal } from 'solid-js'
+import { urlFor } from '../../utilities/sanity-client'
 import { navigationObserver, observer } from '../../utilities/intersectionObserver'
 
-export default function Services() {
+export default function ServicesSection(props) {
 
-  const [ data ] = createResource(getServicesContent)
   const [ activeServiceIndex, setActiveServiceIndex ] = createSignal(0)
 
   let options = {
@@ -27,19 +27,17 @@ export default function Services() {
 
   return (
     <section class={styles.services} id="services" ref={el => navigationObserver.observe(el)}>
-
-        <Show when={data()}>
           <div class={styles.servicesInfo} data-animated="false" ref={el => observer.observe(el)}>
 
             <div class={styles.sectionTitle}>
-              <h2 class="h1">{data()[0].heading}</h2>
-              <Show when={data()[0].subheading}>
-                <h2 class="h5">{data()[0].subheading}</h2>
+              <h2 class="h1">{props.content.heading}</h2>
+              <Show when={props.content.subheading}>
+                <h2 class="h5">{props.content.subheading}</h2>
               </Show>
             </div>
 
             <div class={styles.sectionMedia}>
-              <For each={data()[0].services}>{(service, i) =>
+              <For each={props.content.services}>{(service, i) =>
                 <img 
                   class={styles.serviceImage} 
                   data-active={i() == activeServiceIndex()} src={urlFor(service.image).format("webp").width(1280).url()} 
@@ -52,7 +50,7 @@ export default function Services() {
           </div>
 
           <div class={styles.servicesCategories}>
-            <For each={data()[0].services}>{(service, i) =>
+            <For each={props.content.services}>{(service, i) =>
             
               <div class={styles.serviceCategory} key={i} data-active={i() == activeServiceIndex()} data-index={i()} ref={el => activeServiceObserver.observe(el)}>
                 
@@ -77,14 +75,9 @@ export default function Services() {
                     </For>
                   </ul>
                 </div>
-
               </div>
-            }
-            </For>
-            
+            }</For>
           </div>
-        </Show>
-
     </section>
   )
 }

@@ -1,11 +1,10 @@
-import { Show, createEffect, createResource, createSignal } from 'solid-js'
-import styles from './contact.module.css'
+import styles from './sectionContact.module.css'
+
+import { createSignal } from 'solid-js'
 import { navigationObserver, observer } from '../../utilities/intersectionObserver'
-import { getContactContent } from '../../utilities/sanity-client'
 
-export default function Contact() {
+export default function ContactSection(props) {
 
-  const [ data ] = createResource(getContactContent)
   const [ currentForm, setCurrentForm ] = createSignal(null)
 
   let projectInquiryForm, newsletterForm
@@ -29,7 +28,6 @@ export default function Contact() {
         console.log('Form Load Error')
       }
 
-      // setCurrentForm(el.value)
     });
   }
 
@@ -50,23 +48,19 @@ export default function Contact() {
   }
 
   const handleFormToggle = (e) => {
-
     if (e.target.checked) {
       setCurrentForm(e.target.value)
     }
   }
 
-
-
   return (
-    <Show when={data()}>
     <section class={styles.contact} id="contact" data-animated="false" ref={el => {
       observer.observe(el)
       navigationObserver.observe(el)
     }}>
       <div class={styles.sectionTitle}>
-        <h2>{data()[0].heading}</h2>
-        <p>{data()[0].subheading}</p>
+        <h2>{props.content.heading}</h2>
+        <p>{props.content.subheading}</p>
 
         <div class={styles.formToggle}>
           <fieldset class={styles.toggleFields}>
@@ -103,6 +97,5 @@ export default function Contact() {
       <div class={styles.hubspotForm} id="newsletterForm" ref={el => loadNewsletterForm(el)} data-hidden={currentForm() == "newsletter" ? false : true}></div>
 
     </section>
-    </Show>
   )
 }

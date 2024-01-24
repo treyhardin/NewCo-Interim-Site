@@ -1,15 +1,17 @@
 import './App.css'
-import Hero from './components/hero/hero'
+// import Hero from './components/sections/hero/hero'
 import Header from './components/header/header'
-import Clients from './components/clients/clients'
-import Services from './components/services/services'
+import Clients from './components/sectionClients/sectionClients'
+import Services from './components/sectionServices/sectionServices'
 import Lenis from '@studio-freight/lenis'
-import Partners from './components/partners/partners'
-import Agencies from './components/agencies/agencies'
+import Partners from './components/sectionPartners/sectionPartners'
+import Agencies from './components/sectionAgencies/sectionAgencies'
 import Footer from './components/footer/footer'
-import Contact from './components/contact/contact'
-import About from './components/about/about'
-import Projects from './components/projects/projects'
+import Contact from './components/sectionContact/sectionContact'
+import About from './components/sectionAbout/sectionAbout'
+import Projects from './components/sectionProjects/sectionProjects'
+import { Route, Router } from "@solidjs/router"
+import Home from './routes/home'
 
 
 export const lenis = new Lenis()
@@ -26,14 +28,17 @@ function App() {
   return (
     <>
       <Header />
-      <Hero />
+      <Router>
+        <Route path="/" component={Home} />
+      </Router>
+      {/* <Hero />
       <Clients />
       <About />
       <Services />
       <Contact />
       <Projects />
       <Partners />
-      <Agencies />
+      <Agencies /> */}
       <Footer />
     </>
   )

@@ -1,21 +1,20 @@
-import { Show, createResource } from 'solid-js'
-import styles from './agencies.module.css'
-import { getAgenciesSettings, urlFor } from '../../utilities/sanity-client'
+import styles from './sectionAgencies.module.css'
+
+import { Show } from 'solid-js'
+import { urlFor } from '../../utilities/sanity-client'
 import TextLink from '../textLink/textLink'
 import { observer } from '../../utilities/intersectionObserver'
 
-export default function Agencies() {
-
-  const [data] = createResource(getAgenciesSettings)
+export default function AgenciesSection(props) {
 
   return (
     <section class={styles.agencies}>
-      <Show when={data()}>
+      <Show when={props.content}>
           <div class={styles.sectionTitle}>
-            <h2>{data()[0].heading}</h2>
+            <h2>{props.content.heading}</h2>
           </div>
           <div class={styles.agencyCards}>
-            <For each={data()[0].agencies}>{(agency, i) =>
+            <For each={props.content.agencies}>{(agency, i) =>
               <div class={styles.agencyCard} key={i} data-animated="false" data-animation-delay={i() * 100} ref={el => observer.observe(el)}>
                 <img class={styles.agencyLogo} width="150" height="30" src={urlFor(agency.logo).format("webp").width(300)} alt={`Agency logo for ${agency.name}`} />
                 <p class={`${styles.agencyDescription} caption`}>{agency.description}</p>

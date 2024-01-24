@@ -35,6 +35,38 @@ export const blocksToText = (blocks, el) => {
   })
 }
 
+export async function getHomePageContent() {
+  const content = await client.fetch(`*[_type == "pageHome"]{ 
+    content[]{
+      _type == "sectionHero" => {
+        _type, heading, subheading, showVideo, "videoURL": video.asset -> url, "imageURL": image.asset -> url, showBadge, badgeText
+      },
+      _type == "sectionClients" => {
+        _type, clients[]->{name, slug, image, logo, url}
+      },
+      _type == "sectionAbout" => {
+        _type, heading, subheading, stats, "videoURL": video.asset -> url, image
+      },
+      _type == "sectionServices" => {
+        _type, heading, subheading, services[]
+      },
+      _type == "sectionContact" => {
+        _type, heading, subheading
+      },
+      _type == "sectionWork" => {
+        _type, heading, subheading, categories[]->{name, slug}, projects[]->{title, slug, "clientName": client->name, "categories": categories[]->slug.current, thumbnailImage, showThumbnailVideo, "videoURL": thumbnailVideo.asset->url }
+      },
+      _type == "sectionPartners" => {
+        _type, heading, subheading, inlineLogo, logos[]
+      },
+      _type == "sectionAgencies" => {
+        _type, heading, agencies[]
+      },
+    } 
+  }`)
+  return content
+}
+
 export async function getNavigationSettings() {
   const navigationSettings = await client.fetch('*[_type == "navigationSettings"]{ showPromoBar, promoBarContent, links, instagramURL, linkedInURL, twitterURL, "logoURL": logo.asset -> url, showButton, buttonURL, buttonText}')
   return navigationSettings
